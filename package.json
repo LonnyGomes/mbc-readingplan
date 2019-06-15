@@ -9,6 +9,7 @@
   "author": "Lonny Gomes",
   "license": "ISC",
   "devDependencies": {
+    "fs-extra": "^8.0.1",
     "jest": "^24.8.0"
   }
 }
