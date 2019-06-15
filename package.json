@@ -1,0 +1,14 @@
+{
+  "name": "mbc-readingplan",
+  "version": "0.0.1",
+  "description": "MBC reading plan",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Lonny Gomes",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
