@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const readline = require('readline');
 
 class Parser {
     constructor(inputPath) {
@@ -17,10 +18,56 @@ class Parser {
     }
 
     async parse() {
-        try {
-        } catch (error) {
-            throw new Error(`parse error: ${error}`);
-        }
+        return new Promise((resolve, reject) => {
+            const data = [];
+            let isReadingState = true;
+            let curWeek = null;
+            const fileStream = fs.createReadStream(this.inputPath);
+            const rl = readline.createInterface({
+                input: fileStream,
+                crlfDelay: Infinity
+            });
+
+            rl.on('line', line => {
+                if (line.match(/WEEK \d/)) {
+                    if (curWeek) {
+                        data.push(curWeek);
+                    }
+
+                    isReadingState = true;
+
+                    curWeek = {
+                        week: line,
+                        date: '',
+                        readings: [],
+                        memoryVerse: {}
+                    };
+                } else if (line.match(/^MEMORY VERSE$/)) {
+                    isReadingState = false;
+                } else {
+                    if (isReadingState) {
+                        curWeek.readings.push({
+                            verse: line,
+                            url: ''
+                        });
+                    } else {
+                        curWeek.memoryVerse = {
+                            verse: line,
+                            url: ''
+                        };
+                    }
+                }
+            });
+
+            rl.on('error', () => {
+                reject();
+            });
+
+            rl.on('close', () => {
+                data.push(curWeek);
+                resolve(data);
+            });
+        });
     }
 }
 

@@ -22,12 +22,31 @@ describe('load', () => {
     });
 
     test('should fail if path does not exist', async () => {
-        //expect.assertions(1);
+        expect.assertions(1);
         try {
             const parser = new Parser('fake-file.txt');
             await parser.load();
         } catch (err) {
             expect(err.message).toMatch(/^Failed to open input file/);
         }
+    });
+});
+
+describe('parse', () => {
+    test('should return an array of results', async () => {
+        try {
+            expect.assertions(7);
+            const parser = new Parser(SAMPLE_INPUT);
+            const results = await parser.parse();
+            expect(Array.isArray(results)).toBeTruthy();
+            expect(results).toBeDefined();
+            expect(results.length).toEqual(2);
+
+            const data = results[0];
+            expect(data.week).toBeDefined();
+            expect(data.date).toBeDefined();
+            expect(data.readings).toBeDefined();
+            expect(data.memoryVerse).toBeDefined();
+        } catch (err) {}
     });
 });
