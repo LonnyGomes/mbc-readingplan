@@ -76,11 +76,28 @@ describe('parseVerse', () => {
     });
 
     test('should parse verse in BOOK CHAPTER format', () => {
+        let result = null;
         const parser = new Parser(SAMPLE_INPUT);
-        const result = parser.parseVerse('Genesis 11');
+        result = parser.parseVerse('Genesis 11');
         expect(result.label).toEqual('Genesis 11');
         expect(result.book).toEqual('Genesis');
         expect(result.chapter).toEqual('11');
         expect(result.verse).toBeNull();
+
+        result = parser.parseVerse('1 Corinthians 9-10');
+        expect(result.label).toEqual('1 Corinthians 9');
+        expect(result.book).toEqual('1 Corinthians');
+        expect(result.chapter).toEqual('9');
+        expect(result.verse).toBeNull();
+    });
+
+    test('should parse verse in BOOK CHAPTER:VERSE format', () => {
+        let result = null;
+        const parser = new Parser(SAMPLE_INPUT);
+        result = parser.parseVerse('2 Samuel 3:1');
+        expect(result.label).toEqual('2 Samuel 3:1');
+        expect(result.book).toEqual('2 Samuel');
+        expect(result.chapter).toEqual('3');
+        expect(result.verse).toEqual('1');
     });
 });

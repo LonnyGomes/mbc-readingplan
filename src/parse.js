@@ -74,16 +74,34 @@ class Parser {
         if (!verseStr) {
             throw new Error('verse was not supplied');
         }
-        const re = /(\d*\s*\w+)\s+(\d+)/;
-        const results = re.exec(verseStr);
-        let verse = {};
-        if (results.length === 3) {
+        let re = null;
+        let results = null;
+        let verse = null;
+
+        // check for Book Chapter:verse format
+        re = /(\d*\s*\w+)\s+(\d+):(\d+)/;
+        results = re.exec(verseStr);
+        if (results && results.length === 4) {
             verse = {
                 label: results[0],
                 book: results[1],
                 chapter: results[2],
-                verse: null
+                verse: results[3]
             };
+        }
+
+        if (!verse) {
+            // check for Book Chapter format
+            re = /(\d*\s*\w+)\s+(\d+)/;
+            results = re.exec(verseStr);
+            if (results && results.length === 3) {
+                verse = {
+                    label: results[0],
+                    book: results[1],
+                    chapter: results[2],
+                    verse: null
+                };
+            }
         }
 
         return verse;
