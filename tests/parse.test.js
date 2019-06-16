@@ -34,19 +34,37 @@ describe('load', () => {
 
 describe('parse', () => {
     test('should return an array of results', async () => {
-        try {
-            expect.assertions(7);
-            const parser = new Parser(SAMPLE_INPUT);
-            const results = await parser.parse();
-            expect(Array.isArray(results)).toBeTruthy();
-            expect(results).toBeDefined();
-            expect(results.length).toEqual(2);
+        expect.assertions(8);
+        const parser = new Parser(SAMPLE_INPUT);
+        const results = await parser.parse();
+        expect(Array.isArray(results)).toBeTruthy();
+        expect(results).toBeDefined();
+        expect(results.length).toEqual(2);
 
-            const data = results[0];
-            expect(data.week).toBeDefined();
-            expect(data.date).toBeDefined();
-            expect(data.readings).toBeDefined();
-            expect(data.memoryVerse).toBeDefined();
-        } catch (err) {}
+        const data = results[0];
+        expect(data.week).toBeDefined();
+        expect(data.date).toBeDefined();
+        expect(Array.isArray(data.readings)).toBeTruthy();
+        expect(data.readings).toBeDefined();
+        expect(data.memoryVerse).toBeDefined();
+    });
+
+    test('should contain a populated object', async () => {
+        //expect.assertions(7);
+        const parser = new Parser(SAMPLE_INPUT);
+        const results = await parser.parse();
+
+        const data = results[0];
+        const reading = data.readings[0];
+
+        expect(data.week).toEqual('WEEK 1');
+        expect(data.date).toBeDefined();
+
+        expect(data.memoryVerse.verse).toEqual('Genesis 1:27');
+        expect(data.memoryVerse.url).toBeDefined();
+
+        expect(reading.verse).toBeDefined();
+        expect(reading.verse).toEqual('Genesis 1 -2');
+        expect(reading.url).toBeDefined();
     });
 });
