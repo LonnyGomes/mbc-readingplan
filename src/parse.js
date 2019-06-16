@@ -69,6 +69,26 @@ class Parser {
             });
         });
     }
+
+    parseVerse(verseStr) {
+        if (!verseStr) {
+            throw new Error('verse was not supplied');
+        }
+        const re = /(\d*\s*\w+)\s+(\d+)/;
+        const results = re.exec(verseStr);
+        let verse = {};
+        if (results.length === 3) {
+            verse = {
+                label: results[0],
+                book: results[1],
+                chapter: results[2],
+                verse: null
+            };
+        }
+
+        return verse;
+    }
 }
 
+// https://www.biblegateway.com/passage/?search=Genesis+7%3A9&version=ESV
 module.exports = Parser;

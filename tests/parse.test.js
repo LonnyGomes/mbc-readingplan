@@ -68,3 +68,19 @@ describe('parse', () => {
         expect(reading.url).toBeDefined();
     });
 });
+
+describe('parseVerse', () => {
+    test('should throw an error if argument is not supplied', () => {
+        const parser = new Parser(SAMPLE_INPUT);
+        expect(() => parser.parseVerse()).toThrow(/verse was not supplied/);
+    });
+
+    test('should parse verse in BOOK CHAPTER format', () => {
+        const parser = new Parser(SAMPLE_INPUT);
+        const result = parser.parseVerse('Genesis 11');
+        expect(result.label).toEqual('Genesis 11');
+        expect(result.book).toEqual('Genesis');
+        expect(result.chapter).toEqual('11');
+        expect(result.verse).toBeNull();
+    });
+});
