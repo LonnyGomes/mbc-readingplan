@@ -77,14 +77,24 @@ describe('parseVerse', () => {
 
     test('should parse verse in BOOK CHAPTER format', () => {
         let result = null;
+        let results = null;
         const parser = new Parser(SAMPLE_INPUT);
-        result = parser.parseVerse('Genesis 11');
+
+        // test base case
+        results = parser.parseVerse('Genesis 11');
+        expect(Array.isArray(results)).toBeTruthy();
+        expect(results.length).toBe(1);
+        result = results[0];
         expect(result.label).toEqual('Genesis 11');
         expect(result.book).toEqual('Genesis');
         expect(result.chapter).toEqual('11');
         expect(result.verse).toBeNull();
 
-        result = parser.parseVerse('1 Corinthians 9-10');
+        // test case with dashes
+        results = parser.parseVerse('1 Corinthians 9-10');
+        expect(Array.isArray(results)).toBeTruthy();
+        expect(results.length).toBe(1);
+        result = results[0];
         expect(result.label).toEqual('1 Corinthians 9');
         expect(result.book).toEqual('1 Corinthians');
         expect(result.chapter).toEqual('9');
@@ -94,7 +104,11 @@ describe('parseVerse', () => {
     test('should parse verse in BOOK CHAPTER:VERSE format', () => {
         let result = null;
         const parser = new Parser(SAMPLE_INPUT);
-        result = parser.parseVerse('2 Samuel 3:1');
+        const results = parser.parseVerse('2 Samuel 3:1');
+
+        expect(Array.isArray(results)).toBeTruthy();
+        expect(results.length).toBe(1);
+        result = results[0];
         expect(result.label).toEqual('2 Samuel 3:1');
         expect(result.book).toEqual('2 Samuel');
         expect(result.chapter).toEqual('3');
