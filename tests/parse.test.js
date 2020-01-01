@@ -61,10 +61,14 @@ describe('parse', () => {
         expect(data.date).toBeDefined();
 
         expect(data.memoryVerse.verse).toEqual('Psalm 101:2');
-        expect(data.memoryVerse.url).toBeDefined();
+        expect(data.memoryVerse.url).toEqual(
+            'https://www.biblegateway.com/passage/?search=Psalm%20101:2&version=ESV'
+        );
 
         expect(reading.verse).toEqual('Psalm 1');
-        expect(reading.url).toBeDefined();
+        expect(reading.url).toEqual(
+            'https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV'
+        );
         // date should equal Jan 1 2020
         expect(reading.date).toEqual(new Date(2020, 0, 1));
     });

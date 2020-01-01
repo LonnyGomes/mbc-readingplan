@@ -48,17 +48,30 @@ class Parser {
                         /^Memory Verse: /
                     );
                     isReadingState = false;
+                    const [passage] = this.parseVerse(memoryVerseStr);
+                    const url = this.genBibleGatewayUrl(
+                        passage.book,
+                        passage.chapter,
+                        passage.verse
+                    );
                     curWeek.memoryVerse = {
                         verse: memoryVerseStr,
-                        url: ''
+                        url
                     };
                 } else {
                     if (isReadingState) {
                         const [dateStr, verseStr] = line.split(',');
+                        const [passage] = this.parseVerse(verseStr);
+                        const url = this.genBibleGatewayUrl(
+                            passage.book,
+                            passage.chapter,
+                            passage.verse
+                        );
+
                         curWeek.readings.push({
                             verse: verseStr,
                             date: this.parseDate(dateStr),
-                            url: ''
+                            url
                         });
                     }
                 }
