@@ -57,7 +57,7 @@ class Parser {
                         const [dateStr, verseStr] = line.split(',');
                         curWeek.readings.push({
                             verse: verseStr,
-                            date: dateStr,
+                            date: this.parseDate(dateStr),
                             url: ''
                         });
                     }

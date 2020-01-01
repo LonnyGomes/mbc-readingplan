@@ -50,7 +50,7 @@ describe('parse', () => {
     });
 
     test('should contain a populated object', async () => {
-        //expect.assertions(7);
+        expect.assertions(7);
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
 
@@ -63,9 +63,10 @@ describe('parse', () => {
         expect(data.memoryVerse.verse).toEqual('Psalm 101:2');
         expect(data.memoryVerse.url).toBeDefined();
 
-        expect(reading.verse).toBeDefined();
         expect(reading.verse).toEqual('Psalm 1');
         expect(reading.url).toBeDefined();
+        // date should equal Jan 1 2020
+        expect(reading.date).toEqual(new Date(2020, 0, 1));
     });
 });
 
