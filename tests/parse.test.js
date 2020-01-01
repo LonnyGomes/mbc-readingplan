@@ -1,6 +1,6 @@
 const path = require('path');
 const Parser = require('../src/parse');
-const SAMPLE_INPUT = path.resolve('tests', 'fixtures', 'sample.txt');
+const SAMPLE_INPUT = path.resolve('tests', 'fixtures', 'sample2020.txt');
 
 describe('constructor', () => {
     test('should accept input path', () => {
@@ -60,11 +60,11 @@ describe('parse', () => {
         expect(data.week).toEqual('WEEK 1');
         expect(data.date).toBeDefined();
 
-        expect(data.memoryVerse.verse).toEqual('Genesis 1:27');
+        expect(data.memoryVerse.verse).toEqual('Psalm 101:2');
         expect(data.memoryVerse.url).toBeDefined();
 
         expect(reading.verse).toBeDefined();
-        expect(reading.verse).toEqual('Genesis 1 -2');
+        expect(reading.verse).toEqual('Psalm 1');
         expect(reading.url).toBeDefined();
     });
 });

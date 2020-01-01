@@ -42,19 +42,22 @@ class Parser {
                         readings: [],
                         memoryVerse: {}
                     };
-                } else if (line.match(/^MEMORY VERSE$/)) {
+                } else if (line.match(/^Memory Verse:/)) {
+                    const [mvToken, memoryVerseStr] = line.split(
+                        /^Memory Verse: /
+                    );
                     isReadingState = false;
+                    curWeek.memoryVerse = {
+                        verse: memoryVerseStr,
+                        url: ''
+                    };
                 } else {
                     if (isReadingState) {
+                        const [datStr, verseStr] = line.split(',');
                         curWeek.readings.push({
-                            verse: line,
+                            verse: verseStr,
                             url: ''
                         });
-                    } else {
-                        curWeek.memoryVerse = {
-                            verse: line,
-                            url: ''
-                        };
                     }
                 }
             });
@@ -104,7 +107,7 @@ class Parser {
             }
         }
 
-        return verse;
+        return [verse];
     }
 }
 
