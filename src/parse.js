@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+var moment = require('moment');
 const readline = require('readline');
 
 class Parser {
@@ -53,9 +54,10 @@ class Parser {
                     };
                 } else {
                     if (isReadingState) {
-                        const [datStr, verseStr] = line.split(',');
+                        const [dateStr, verseStr] = line.split(',');
                         curWeek.readings.push({
                             verse: verseStr,
+                            date: dateStr,
                             url: ''
                         });
                     }
@@ -108,6 +110,13 @@ class Parser {
         }
 
         return [verse];
+    }
+
+    parseDate(dateStr) {
+        const formattedDate = `${dateStr} 2020`;
+        const parsedDate = moment(formattedDate, 'MMM D YYYY');
+
+        return parsedDate.isValid() ? parsedDate.toDate() : null;
     }
 }
 

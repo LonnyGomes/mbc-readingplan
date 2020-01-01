@@ -115,3 +115,37 @@ describe('parseVerse', () => {
         expect(result.verse).toEqual('1');
     });
 });
+
+describe('parseDate', () => {
+    test('should be defined', () => {
+        var parser = new Parser(SAMPLE_INPUT);
+
+        expect(parser.parseDate).toBeDefined();
+    });
+
+    test('should return null if null is supplied', () => {
+        let result = null;
+        var parser = new Parser(SAMPLE_INPUT);
+        result = parser.parseDate();
+
+        expect(result).toBeNull();
+    });
+
+    test('should return null if invalid date is supplied', () => {
+        let result = null;
+        var parser = new Parser(SAMPLE_INPUT);
+        result = parser.parseDate('Bad 42');
+
+        expect(result).toBeNull();
+    });
+
+    test('should a Date object for a valid date string', () => {
+        const SAMPLE_DATE = 'Jan 10';
+        const expected = new Date(2020, 0, 10);
+        let result = null;
+        var parser = new Parser(SAMPLE_INPUT);
+        result = parser.parseDate(SAMPLE_DATE);
+
+        expect(result).toEqual(expected);
+    });
+});
