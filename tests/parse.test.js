@@ -150,3 +150,45 @@ describe('parseDate', () => {
         expect(result).toEqual(expected);
     });
 });
+
+describe('genBibleGatewayUrl', () => {
+    test('should return null if no parameters are supplied', () => {
+        let result = null;
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genBibleGatewayUrl();
+
+        expect(result).toBeNull();
+    });
+
+    test('should return null if only a book is supplied', () => {
+        let result = null;
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genBibleGatewayUrl('Psalm');
+
+        expect(result).toBeNull();
+    });
+
+    test('should return url when only book and chapter are supplied', () => {
+        let result = null;
+        const expected =
+            'https://www.biblegateway.com/passage/?search=Psalm%2023&version=ESV';
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genBibleGatewayUrl('Psalm', 23);
+
+        expect(result).toEqual(expected);
+    });
+
+    test('should return url specific verse all parameters are supplied', () => {
+        let result = null;
+        const expected =
+            'https://www.biblegateway.com/passage/?search=Psalm%2031:1&version=ESV';
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genBibleGatewayUrl('Psalm', 31, 1);
+
+        expect(result).toEqual(expected);
+    });
+});

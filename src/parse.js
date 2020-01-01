@@ -118,6 +118,26 @@ class Parser {
 
         return parsedDate.isValid() ? parsedDate.toDate() : null;
     }
+
+    genBibleGatewayUrl(book, chapter, verse) {
+        const baseUrl = 'https://www.biblegateway.com/passage/?search=';
+        const versionParam = 'version=ESV';
+        let passage = null;
+
+        if (!book || !chapter) {
+            return null;
+        }
+
+        passage = `${book} ${chapter}`;
+
+        if (verse) {
+            passage = `${passage}:${verse}`;
+        }
+
+        const url = `${baseUrl}${passage}&${versionParam}`;
+
+        return encodeURI(url);
+    }
 }
 
 // https://www.biblegateway.com/passage/?search=Genesis+7%3A9&version=ESV
