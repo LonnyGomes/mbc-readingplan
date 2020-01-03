@@ -34,7 +34,7 @@ describe('load', () => {
 
 describe('parse', () => {
     test('should return an array of results', async () => {
-        expect.assertions(8);
+        expect.assertions(9);
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
         expect(Array.isArray(results)).toBeTruthy();
@@ -43,22 +43,27 @@ describe('parse', () => {
 
         const data = results[0];
         expect(data.week).toBeDefined();
-        expect(data.date).toBeDefined();
+        expect(data.startDate).toBeDefined();
+        expect(data.endDate).toBeDefined();
         expect(Array.isArray(data.readings)).toBeTruthy();
         expect(data.readings).toBeDefined();
         expect(data.memoryVerse).toBeDefined();
     });
 
     test('should contain a populated object', async () => {
-        expect.assertions(7);
+        expect.assertions(8);
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
+        // date should equal Jan 1 2020
+        const expectedFirstDate = new Date(2020, 0, 1);
+        const expectedSecondDate = new Date(2020, 0, 7);
 
         const data = results[0];
         const reading = data.readings[0];
 
         expect(data.week).toEqual('WEEK 1');
-        expect(data.date).toBeDefined();
+        expect(data.startDate).toEqual(expectedFirstDate);
+        expect(data.endDate).toEqual(expectedSecondDate);
 
         expect(data.memoryVerse.verse).toEqual('Psalm 101:2');
         expect(data.memoryVerse.url).toEqual(
@@ -69,8 +74,7 @@ describe('parse', () => {
         expect(reading.url).toEqual(
             'https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV'
         );
-        // date should equal Jan 1 2020
-        expect(reading.date).toEqual(new Date(2020, 0, 1));
+        expect(reading.date).toEqual(expectedFirstDate);
     });
 });
 

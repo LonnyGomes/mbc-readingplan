@@ -18,10 +18,11 @@ class Parser {
         }
     }
 
-    async parse() {
+    parse() {
         return new Promise((resolve, reject) => {
             const data = [];
             let isReadingState = true;
+            let hasReadFirstDate = false;
             let curWeek = null;
             const fileStream = fs.createReadStream(this.inputPath);
             const rl = readline.createInterface({
@@ -36,10 +37,12 @@ class Parser {
                     }
 
                     isReadingState = true;
+                    hasReadFirstDate = false;
 
                     curWeek = {
                         week: line,
-                        date: '',
+                        startDate: null,
+                        endDate: null,
                         readings: [],
                         memoryVerse: {}
                     };
@@ -67,10 +70,19 @@ class Parser {
                             passage.chapter,
                             passage.verse
                         );
+                        const dateVal = this.parseDate(dateStr);
+
+                        if (!hasReadFirstDate) {
+                            hasReadFirstDate = true;
+                            curWeek.startDate = dateVal;
+                            curWeek.endDate = moment(dateVal)
+                                .add(6, 'days')
+                                .toDate();
+                        }
 
                         curWeek.readings.push({
                             verse: verseStr,
-                            date: this.parseDate(dateStr),
+                            date: dateVal,
                             url
                         });
                     }
