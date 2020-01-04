@@ -1,10 +1,13 @@
 {
   "name": "mbc-readingplan",
   "version": "0.0.1",
-  "description": "MBC reading plan",
+  "description": "MBC 2020 reading plan",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
+  },
+  "bin": {
+    "mbc-calexport":"./src/cli.js"
   },
   "author": "Lonny Gomes",
   "license": "ISC",
