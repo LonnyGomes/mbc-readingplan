@@ -30,6 +30,8 @@ class Parser {
                 crlfDelay: Infinity
             });
 
+            fileStream.on('error', err => reject(err));
+
             rl.on('line', line => {
                 if (line.match(/WEEK \d/)) {
                     if (curWeek) {
@@ -89,9 +91,7 @@ class Parser {
                 }
             });
 
-            rl.on('error', () => {
-                reject();
-            });
+            rl.on('error', err => reject(err));
 
             rl.on('close', () => {
                 data.push(curWeek);
