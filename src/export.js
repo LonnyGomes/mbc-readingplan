@@ -37,7 +37,7 @@ class Exporter {
             start: [year, month, day],
             end: [endYear, endMonth, endDay],
             title,
-            description: passage.verse,
+            description: `Today's reading: ${passage.verse}`,
             url: passage.url
         };
 
@@ -61,7 +61,7 @@ class Exporter {
 
             for (const passage of passages) {
                 try {
-                    const curTitle = `${curWeek.week}, Day ${curDay}`;
+                    const curTitle = `MBC Reading Plan: ${curWeek.week}, Day ${curDay}`;
                     const curEvent = this.mapToEvent(curTitle, 1, passage);
                     events.push(curEvent);
                 } catch (error) {

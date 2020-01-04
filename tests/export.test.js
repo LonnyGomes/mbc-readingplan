@@ -45,7 +45,7 @@ describe('mapToEvent', () => {
             start: [2020, 1, 1],
             end: [2020, 1, 2],
             title: 'Day 1 Reading',
-            description: 'Psalm 1',
+            description: "Today's reading: Psalm 1",
             url:
                 'https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV'
         };
@@ -63,7 +63,7 @@ describe('mapToEvent', () => {
             start: [2020, 1, 1],
             end: [2020, 1, 8],
             title: 'Week 1 Memory Verse',
-            description: 'Psalm 101:2',
+            description: "Today's reading: Psalm 101:2",
             url:
                 'https://www.biblegateway.com/passage/?search=Psalm%20101:2&version=ESV'
         };
