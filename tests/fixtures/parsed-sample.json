@@ -1,0 +1,84 @@
+[
+    {
+        "week": "WEEK 1",
+        "startDate": "2020-01-01T05:00:00.000Z",
+        "endDate": "2020-01-07T05:00:00.000Z",
+        "readings": [
+            {
+                "verse": "Psalm 1",
+                "date": "2020-01-01T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV"
+            },
+            {
+                "verse": "Psalm 2",
+                "date": "2020-01-02T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%202&version=ESV"
+            },
+            {
+                "verse": "Psalm 3",
+                "date": "2020-01-03T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%203&version=ESV"
+            },
+            {
+                "verse": "Psalm 4",
+                "date": "2020-01-04T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%204&version=ESV"
+            },
+            {
+                "verse": "Psalm 5",
+                "date": "2020-01-05T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%205&version=ESV"
+            }
+        ],
+        "memoryVerse": {
+            "verse": "Psalm 101:2",
+            "url": "https://www.biblegateway.com/passage/?search=Psalm%20101:2&version=ESV"
+        }
+    },
+    {
+        "week": "WEEK 2",
+        "startDate": "2020-01-06T05:00:00.000Z",
+        "endDate": "2020-01-12T05:00:00.000Z",
+        "readings": [
+            {
+                "verse": "Psalm 6",
+                "date": "2020-01-06T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%206&version=ESV"
+            },
+            {
+                "verse": "Psalm 7",
+                "date": "2020-01-07T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%207&version=ESV"
+            },
+            {
+                "verse": "Psalm 8",
+                "date": "2020-01-08T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%208&version=ESV"
+            },
+            {
+                "verse": "Psalm 9",
+                "date": "2020-01-09T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%209&version=ESV"
+            },
+            {
+                "verse": "Psalm 10",
+                "date": "2020-01-10T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%2010&version=ESV"
+            },
+            {
+                "verse": "Psalm 11",
+                "date": "2020-01-11T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%2011&version=ESV"
+            },
+            {
+                "verse": "Psalm 12",
+                "date": "2020-01-12T05:00:00.000Z",
+                "url": "https://www.biblegateway.com/passage/?search=Psalm%2012&version=ESV"
+            }
+        ],
+        "memoryVerse": {
+            "verse": "Psalm 106:8",
+            "url": "https://www.biblegateway.com/passage/?search=Psalm%20106:8&version=ESV"
+        }
+    }
+]

@@ -1,6 +1,5 @@
 const Exporter = require('../src/export');
-
-const SAMPLE_INPUT = [{ key: 'value' }];
+const SAMPLE_INPUT = require('./fixtures/parsed-sample.json');
 
 describe('constructor', () => {
     test('should accept passages array', () => {
