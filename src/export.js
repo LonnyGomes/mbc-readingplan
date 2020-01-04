@@ -46,6 +46,37 @@ class Exporter {
 
         return event;
     }
+
+    /**
+     * Generates ics-compliant objects for all reading passages and memory verses
+     * @param {array} readingList array of weeks that compose the reading list
+     * @returns {array} list of ics-compliant objects
+     */
+    genEvents(readingList) {
+        let passages = null;
+        let curDay = 1;
+        const events = [];
+
+        // loop through all weeks
+        for (const curWeek of readingList) {
+            // loop through all the readings for the week
+            passages = curWeek.readings;
+
+            for (const passage of passages) {
+                try {
+                    const curTitle = `${curWeek.week}, Day ${curDay}`;
+                    const curEvent = this.mapToEvent(curTitle, 1, passage);
+                    events.push(curEvent);
+                } catch (error) {
+                    console.log('failed to add event', passage, error);
+                    continue;
+                }
+                curDay += 1;
+            }
+        }
+
+        return events;
+    }
 }
 
 module.exports = Exporter;

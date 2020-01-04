@@ -88,3 +88,13 @@ describe('mapToEvent', () => {
         expect(result).toEqual(expectedResult);
     });
 });
+
+describe('genEvents', () => {
+    test('should generate array of events', () => {
+        const exporter = new Exporter(SAMPLE_INPUT);
+        const result = exporter.genEvents(SAMPLE_INPUT);
+
+        expect(Array.isArray(result)).toEqual(true);
+        expect(result.length).toEqual(12);
+    });
+});
