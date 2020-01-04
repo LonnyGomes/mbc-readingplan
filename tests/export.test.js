@@ -4,26 +4,12 @@ const BASE_FIXTURES_PATH = path.resolve(__dirname, 'fixtures');
 const Exporter = require('../src/export');
 const SAMPLE_INPUT = require('./fixtures/parsed-sample.json');
 
-describe('constructor', () => {
-    test('should accept passages array', () => {
-        const exporter = new Exporter(SAMPLE_INPUT);
-        expect(exporter.passages).toEqual(SAMPLE_INPUT);
-    });
-
-    test('should throw error if no path is supplied', () => {
-        const exporter = new Exporter(SAMPLE_INPUT);
-        expect(() => new Exporter()).toThrow(
-            /passages array must be supplied supplied/
-        );
-    });
-});
-
 describe('mapToEvent', () => {
     test('should throw an error if duration is not supplied', () => {
         const weekObj = SAMPLE_INPUT[0];
 
         const passage = Object.assign({}, weekObj.readings[0]);
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
 
         expect(() => exporter.mapToEvent('title')).toThrow(
             /duration must be supplied as an integer/
@@ -34,7 +20,7 @@ describe('mapToEvent', () => {
         const weekObj = SAMPLE_INPUT[0];
 
         const passage = Object.assign({}, weekObj.readings[0]);
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
 
         expect(() => exporter.mapToEvent('title', '1a', passage)).toThrow(
             /duration must be supplied as an integer/
@@ -45,7 +31,7 @@ describe('mapToEvent', () => {
         const weekObj = SAMPLE_INPUT[0];
 
         const passage = Object.assign({}, weekObj.readings[0]);
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
 
         passage.date = null;
 
@@ -67,7 +53,7 @@ describe('mapToEvent', () => {
         const weekObj = SAMPLE_INPUT[0];
 
         const passage = Object.assign({}, weekObj.readings[0]);
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
         const result = exporter.mapToEvent('Day 1 Reading', 1, passage);
         expect(result).toEqual(expectedResult);
     });
@@ -86,7 +72,7 @@ describe('mapToEvent', () => {
 
         const passage = Object.assign({}, weekObj.memoryVerse);
         passage.date = weekObj.startDate;
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
         const result = exporter.mapToEvent('Week 1 Memory Verse', 7, passage);
         expect(result).toEqual(expectedResult);
     });
@@ -94,7 +80,7 @@ describe('mapToEvent', () => {
 
 describe('genEvents', () => {
     test('should generate array of events', () => {
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
         const result = exporter.genEvents(SAMPLE_INPUT);
 
         expect(Array.isArray(result)).toEqual(true);
@@ -110,7 +96,7 @@ describe('exportIcs', () => {
 
     test('should export an ics file to specified location', async () => {
         //expect.assertions(1);
-        const exporter = new Exporter(SAMPLE_INPUT);
+        const exporter = new Exporter();
         const events = exporter.genEvents(SAMPLE_INPUT);
 
         const result = await exporter.exportIcs(events, OUTPUT_PATH);

@@ -3,12 +3,7 @@ const ics = require('ics');
 const fs = require('fs-extra');
 
 class Exporter {
-    constructor(passages) {
-        if (!passages) {
-            throw new Error('passages array must be supplied supplied');
-        }
-        this.passages = passages;
-    }
+    constructor() {}
 
     /**
      * Accepts a passage entry and creates an event object parsable by the ics module
