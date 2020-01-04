@@ -1,4 +1,6 @@
 const moment = require('moment');
+const ics = require('ics');
+const fs = require('fs-extra');
 
 class Exporter {
     constructor(passages) {
@@ -76,6 +78,25 @@ class Exporter {
         }
 
         return events;
+    }
+
+    exportIcs(events, outputPath) {
+        return new Promise((resolve, reject) => {
+            ics.createEvents(events, async (error, icsOutput) => {
+                if (error) {
+                    console.log(error);
+                    reject(error);
+                    return;
+                }
+
+                try {
+                    await fs.writeFile(outputPath, icsOutput);
+                    resolve(icsOutput);
+                } catch (error) {
+                    reject(error);
+                }
+            });
+        });
     }
 }
 

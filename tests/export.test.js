@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs-extra');
+const BASE_FIXTURES_PATH = path.resolve(__dirname, 'fixtures');
 const Exporter = require('../src/export');
 const SAMPLE_INPUT = require('./fixtures/parsed-sample.json');
 
@@ -96,5 +99,20 @@ describe('genEvents', () => {
 
         expect(Array.isArray(result)).toEqual(true);
         expect(result.length).toEqual(12);
+    });
+});
+
+describe('exportIcs', () => {
+    const OUTPUT_PATH = path.resolve(BASE_FIXTURES_PATH, 'temp-test.ics');
+
+    beforeEach(() => fs.removeSync(OUTPUT_PATH));
+    afterEach(() => fs.removeSync(OUTPUT_PATH));
+
+    test('should export an ics file to specified location', async () => {
+        //expect.assertions(1);
+        const exporter = new Exporter(SAMPLE_INPUT);
+        const events = exporter.genEvents(SAMPLE_INPUT);
+
+        const result = await exporter.exportIcs(events, OUTPUT_PATH);
     });
 });
