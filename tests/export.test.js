@@ -95,10 +95,11 @@ describe('exportIcs', () => {
     afterEach(() => fs.removeSync(OUTPUT_PATH));
 
     test('should export an ics file to specified location', async () => {
-        //expect.assertions(1);
+        expect.assertions(1);
         const exporter = new Exporter();
         const events = exporter.genEvents(SAMPLE_INPUT);
 
         const result = await exporter.exportIcs(events, OUTPUT_PATH);
+        expect(fs.pathExistsSync(OUTPUT_PATH)).toEqual(true);
     });
 });
