@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+const package = require('../package.json');
+const commander = require('commander');
+const program = new commander.Command();
 const path = require('path');
 const chalk = require('chalk');
 const log = console.log;
@@ -8,27 +11,27 @@ const errorMsg = msg => {
     process.exit(1);
 };
 const successMsg = msg => log(`${chalk.green('✔')} ${msg}`);
-const [, , ...args] = process.argv;
-const [inputFile, outputPath] = args;
 
-if (args.length === 1) {
-    errorMsg('Must supply output path for the .ics file!');
-}
+program
+    .version(package.version)
+    .requiredOption('-i, --inputFile [path]', 'path to text file of passages')
+    .requiredOption(
+        '-o, --outputPath [path]',
+        'Output path for the .ics files'
+    );
 
-if (args.length !== 2) {
-    errorMsg('Must supply input text file and output path for the .ics file!');
-}
+program.parse(process.argv);
 
-if (path.extname(outputPath) !== '.ics') {
+if (path.extname(program.outputPath) !== '.ics') {
     errorMsg('Output file should have a ".ics" extension!');
 }
 
 // run export and handle errors
-readingPlanExport(inputFile, outputPath)
+readingPlanExport(program.inputFile, program.outputPath)
     .then(() => {
         successMsg(
             `successfully generated calendar file at ${chalk.bold.green(
-                outputPath
+                program.outputPath
             )}`
         );
     })

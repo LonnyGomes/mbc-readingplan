@@ -10,7 +10,7 @@ NodeJS is required to run this script. Once node is installed,
 git clone git@github.com:LonnyGomes/mbc-readingplan.git
 cd mbc-readingplan
 npm install -g .
-mbc-calexport input/readingplan-2020-psalm.txt calendar.ics
+mbc-calexport -i input/readingplan-2020-psalm.txt -o calendar.ics
 ```
 
 ## Expected text format
