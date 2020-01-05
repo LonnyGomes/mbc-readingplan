@@ -10,9 +10,10 @@ class Exporter {
      * @param {string} title Title for calendar event
      * @param {number} duration total days for event
      * @param {object} passage and object containing date, verse, and url items
+     * @param {string} prefaceText optional text to preface verse, otherwise the default is used
      * @returns {object} ics event object
      */
-    mapToEvent(title, duration, passage) {
+    mapToEvent(title, duration, passage, prefaceText = "Today's reading") {
         if (isNaN(duration)) {
             throw new Error('duration must be supplied as an integer');
         }
@@ -37,7 +38,7 @@ class Exporter {
             start: [year, month, day],
             end: [endYear, endMonth, endDay],
             title,
-            description: `Today's reading: ${passage.verse}`,
+            description: `${prefaceText}: ${passage.verse}`,
             url: passage.url
         };
 
@@ -45,7 +46,7 @@ class Exporter {
     }
 
     /**
-     * Generates ics-compliant objects for all reading passages and memory verses
+     * Generates ics-compliant objects for all reading passages
      * @param {array} readingList array of weeks that compose the reading list
      * @returns {array} list of ics-compliant objects
      */
@@ -69,6 +70,47 @@ class Exporter {
                     continue;
                 }
                 curDay += 1;
+            }
+        }
+
+        return events;
+    }
+
+    /**
+     * Generates ics-compliant objects for all memory verses
+     * @param {array} readingList array of weeks that compose the reading list
+     * @returns {array} list of ics-compliant objects
+     */
+    genMemoryVerseEvents(readingList) {
+        const events = [];
+
+        // loop through all weeks
+        for (const curWeek of readingList) {
+            // loop through all the readings for the week
+            const memoryVersePassage = Object.assign(curWeek.memoryVerse, {
+                date: curWeek.startDate
+            });
+            const endDate = moment(curWeek.startDate)
+                // determine end of week () which would be saturday
+                .endOf('week')
+                // the duration must go to the start of the new week
+                // sunday + monday === 2 days
+                .add(2, 'd');
+            // calculate the number of days between the dates to get the duration
+            const duration = endDate.diff(curWeek.startDate, 'days');
+
+            try {
+                const curTitle = `MBC Memory Verse: ${curWeek.week}`;
+                const curEvent = this.mapToEvent(
+                    curTitle,
+                    duration,
+                    memoryVersePassage,
+                    "This week's memory verse"
+                );
+                events.push(curEvent);
+            } catch (error) {
+                console.log('failed to add event', memoryVersePassage, error);
+                continue;
             }
         }
 

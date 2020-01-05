@@ -88,6 +88,16 @@ describe('genEvents', () => {
     });
 });
 
+describe('genMemoryVerseEvents', () => {
+    test('should generate array of memory verse events', () => {
+        const exporter = new Exporter();
+        const result = exporter.genMemoryVerseEvents(SAMPLE_INPUT);
+
+        expect(Array.isArray(result)).toEqual(true);
+        expect(result.length).toEqual(2);
+    });
+});
+
 describe('exportIcs', () => {
     const OUTPUT_PATH = path.resolve(BASE_FIXTURES_PATH, 'temp-test.ics');
 
