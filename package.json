@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "bin": {
-    "mbc-calexport":"./src/cli.js"
+    "mbc-calexport": "./src/cli.js"
   },
   "author": "Lonny Gomes",
   "license": "ISC",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "chalk": "^3.0.0",
+    "commander": "^4.0.1",
     "ics": "^2.18.0",
     "moment": "^2.24.0"
   }
