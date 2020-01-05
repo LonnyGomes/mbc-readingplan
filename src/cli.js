@@ -15,10 +15,8 @@ const successMsg = msg => log(`${chalk.green('✔')} ${msg}`);
 program
     .version(package.version)
     .requiredOption('-i, --inputFile [path]', 'path to text file of passages')
-    .requiredOption(
-        '-o, --outputPath [path]',
-        'Output path for the .ics files'
-    );
+    .requiredOption('-o, --outputPath [path]', 'Output path for the .ics files')
+    .option('-m, --memoryVerse', 'Output path for the .ics files');
 
 program.parse(process.argv);
 
@@ -27,7 +25,11 @@ if (path.extname(program.outputPath) !== '.ics') {
 }
 
 // run export and handle errors
-readingPlanExport(program.inputFile, program.outputPath)
+readingPlanExport(
+    program.inputFile,
+    program.outputPath,
+    program.memoryVerse || false
+)
     .then(() => {
         successMsg(
             `successfully generated calendar file at ${chalk.bold.green(
