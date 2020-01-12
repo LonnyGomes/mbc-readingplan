@@ -163,6 +163,24 @@ class Parser {
 
         return encodeURI(url);
     }
+
+    genEsvApiUrl(token, book, chapter, verse) {
+        const baseUrl = 'https://api.esv.org/v3/passage/text/?q=';
+        const header = `Authorization: Token ${token}`;
+
+        if (!token || !book || !chapter) {
+            return null;
+        }
+
+        if (!verse) {
+            verse = '1';
+        }
+
+        const passage = `${book}+${chapter}:${verse}`;
+        const url = `${baseUrl}${passage}`;
+
+        return { header, url };
+    }
 }
 
 // https://www.biblegateway.com/passage/?search=Genesis+7%3A9&version=ESV

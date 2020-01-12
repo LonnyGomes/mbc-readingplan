@@ -200,3 +200,69 @@ describe('genBibleGatewayUrl', () => {
         expect(result).toEqual(expected);
     });
 });
+
+describe('genEsvApiUrl', () => {
+    test('should return null if no parameters are supplied', () => {
+        let result = null;
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genEsvApiUrl();
+
+        expect(result).toBeNull();
+    });
+
+    test('should return null if only a token is supplied', () => {
+        let result = null;
+        const token = 'f4k3t0k3n';
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genEsvApiUrl(token);
+
+        expect(result).toBeNull();
+    });
+
+    test('should return null if a chapter is not supplied', () => {
+        let result = null;
+        const token = 'f4k3t0k3n';
+        const book = 'John';
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genEsvApiUrl(token, book);
+
+        expect(result).toBeNull();
+    });
+
+    test('should return a valid object containing first verse if verse is not supplied', () => {
+        let result = null;
+        const token = 'f4k3t0k3n';
+        const book = 'John';
+        const chapter = '3';
+        const expected = {
+            header: `Authorization: Token ${token}`,
+            url: `https://api.esv.org/v3/passage/text/?q=${book}+${chapter}:1`
+        }
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genEsvApiUrl(token, book, chapter);
+
+        expect(result).toEqual(expected);
+    });
+
+    test('should return a valid object if all parameters are supplied', () => {
+        let result = null;
+        const token = 'f4k3t0k3n';
+        const book = 'John';
+        const chapter = '3';
+        const verse = '16x';
+        const expected = {
+            header: `Authorization: Token ${token}`,
+            url: `https://api.esv.org/v3/passage/text/?q=${book}+${chapter}:${verse}`
+        }
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genEsvApiUrl(token, book, chapter, verse);
+
+        expect(result).toEqual(expected);
+    });
+});
+
