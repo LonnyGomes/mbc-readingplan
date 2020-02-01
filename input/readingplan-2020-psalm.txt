@@ -45,3 +45,13 @@ Jan 31,Psalm 31
 Feb 1,Psalm 32
 Feb 2,Psalm 33
 Memory Verse: Psalm 127:1
+
+WEEK 6
+Feb 2,Psalm 33
+Feb 3,Psalm 34
+Feb 4,Psalm 35
+Feb 5,Psalm 36
+Feb 6,Psalm 37
+Feb 7,Psalm 38
+Feb 8,Psalm 39
+Memory Verse: Psalm 34:9
