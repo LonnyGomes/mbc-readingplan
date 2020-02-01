@@ -1,9 +1,10 @@
 const moment = require('moment');
 const ics = require('ics');
 const fs = require('fs-extra');
+const axios = require('axios').default;
 
 class Exporter {
-    constructor() {}
+    constructor() { }
 
     /**
      * Accepts a passage entry and creates an event object parsable by the ics module
@@ -81,7 +82,7 @@ class Exporter {
      * @param {array} readingList array of weeks that compose the reading list
      * @returns {array} list of ics-compliant objects
      */
-    genMemoryVerseEvents(readingList) {
+    async genMemoryVerseEvents(readingList) {
         const events = [];
 
         // loop through all weeks
@@ -107,6 +108,11 @@ class Exporter {
                     memoryVersePassage,
                     "This week's memory verse"
                 );
+                const { data } = await this.getVerseContents(curWeek.memoryVerse.apiHeader, curWeek.memoryVerse.apiUrl);
+                // if the verse contents were retrieved, store them in the description
+                if (data && data.passages) {
+                    curEvent.description = data.passages[0];
+                }
                 events.push(curEvent);
             } catch (error) {
                 console.log('failed to add event', memoryVersePassage, error);
@@ -115,6 +121,24 @@ class Exporter {
         }
 
         return events;
+    }
+
+    async getVerseContents(header, url) {
+        let results = null;
+        if (!header) {
+            return null;
+        }
+
+        const [headerKey, headerValue] = header.split(/\s*:\s/);
+        const headers = { [headerKey]: headerValue };
+
+        try {
+            results = await axios({ method: 'GET', url, headers });
+        } catch (error) {
+            throw error;
+        }
+
+        return results;
     }
 
     exportIcs(events, outputPath) {

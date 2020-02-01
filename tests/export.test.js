@@ -4,6 +4,9 @@ const BASE_FIXTURES_PATH = path.resolve(__dirname, 'fixtures');
 const Exporter = require('../src/export');
 const SAMPLE_INPUT = require('./fixtures/parsed-sample.json');
 
+const axios = require('axios').default;
+jest.mock('axios');
+
 describe('mapToEvent', () => {
     test('should throw an error if duration is not supplied', () => {
         const weekObj = SAMPLE_INPUT[0];
@@ -89,12 +92,104 @@ describe('genEvents', () => {
 });
 
 describe('genMemoryVerseEvents', () => {
-    test('should generate array of memory verse events', () => {
+    test('should generate array of memory verse events', async () => {
+        expect.assertions(6);
         const exporter = new Exporter();
-        const result = exporter.genMemoryVerseEvents(SAMPLE_INPUT);
+        const expectedApiResults = {
+            data: {
+                query: 'John 3:16',
+                canonical: 'John 3:16',
+                parsed: [],
+                passage_meta: [],
+                passages: [
+                    'John 3:16\n' +
+                    '\n' +
+                    'For God So Loved the World\n' +
+                    '\n' +
+                    '  [16] “For God so loved the world,(1) that he gave his only Son, that whoever believes in him should not perish but have eternal life.\n' +
+                    '\n' +
+                    'Footnotes\n' +
+                    '\n' +
+                    '(1) 3:16 Or *For this is how God loved the world*\n' +
+                    ' (ESV)'
+                ]
+            },
+            status: 200,
+            statusText: 'OK'
+        };
+
+        axios.mockResolvedValue(expectedApiResults);
+        const result = await exporter.genMemoryVerseEvents(SAMPLE_INPUT);
 
         expect(Array.isArray(result)).toEqual(true);
         expect(result.length).toEqual(2);
+
+        const firstResult = result[0]
+        expect(firstResult.start).toBeDefined();
+        expect(firstResult.end).toBeDefined();
+        expect(firstResult.title).toBeDefined();
+        expect(firstResult.description).toBeDefined();
+    });
+});
+
+describe('getVerseContents', () => {
+    test('should retrieve verse contents from API', async () => {
+        expect.assertions(3);
+        const exporter = new Exporter();
+        const sampleHeader = "Authorization: Token XXXXXXXXXX";
+        const sampleUrl = 'https://api.esv.org/v3/passage/text/?q=Psalm+8:1-5';
+        const expectedResults = {
+            data: {
+                query: 'John 3:16',
+                canonical: 'John 3:16',
+                parsed: [],
+                passage_meta: [],
+                passages: [
+                    'John 3:16\n' +
+                    '\n' +
+                    'For God So Loved the World\n' +
+                    '\n' +
+                    '  [16] “For God so loved the world,(1) that he gave his only Son, that whoever believes in him should not perish but have eternal life.\n' +
+                    '\n' +
+                    'Footnotes\n' +
+                    '\n' +
+                    '(1) 3:16 Or *For this is how God loved the world*\n' +
+                    ' (ESV)'
+                ]
+            },
+            status: 200,
+            statusText: 'OK'
+        };
+
+        axios.mockResolvedValue(expectedResults);
+        const result = await exporter.getVerseContents(sampleHeader, sampleUrl);
+        expect(result.data).toBeDefined();
+        expect(Array.isArray(result.data.passages)).toEqual(true);
+        expect(result.data.passages.length).toEqual(1);
+    });
+
+    test('should return null if header or url is not defined', async () => {
+        expect.assertions(1);
+        const exporter = new Exporter();
+
+        const result = await exporter.getVerseContents(null, null);
+        expect(result).toEqual(null);
+    });
+
+    test('should throw error on invalid API call', async () => {
+        expect.assertions(1);
+        const errMsg = 'bad API call';
+        const sampleHeader = "Authorization: Token XXXXXXXXXX";
+        const sampleUrl = 'https://api.esv.org/v3/passage/text/?q=Psalm+8:1-5';
+
+        const exporter = new Exporter();
+
+        axios.mockImplementation(() => Promise.reject(new Error(errMsg)));
+        try {
+            await exporter.getVerseContents(sampleHeader, sampleUrl);
+        } catch (error) {
+            expect(error.message).toEqual(errMsg);
+        }
     });
 });
 

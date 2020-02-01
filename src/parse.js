@@ -18,7 +18,7 @@ class Parser {
         }
     }
 
-    parse() {
+    parse(token = null) {
         return new Promise((resolve, reject) => {
             const data = [];
             let isReadingState = true;
@@ -63,6 +63,16 @@ class Parser {
                         verse: memoryVerseStr,
                         url
                     };
+
+                    // if a token is supplied, generate api URL and header for memory verse
+                    if (token) {
+                        // generate the api request header/url to retrieve the text
+                        const apiRequest = this.genEsvApiUrl(token, passage.book, passage.chapter, passage.verse);
+                        Object.assign(curWeek.memoryVerse, {
+                            apiUrl: apiRequest.url,
+                            apiHeader: apiRequest.header
+                        });
+                    }
                 } else {
                     if (isReadingState) {
                         const [dateStr, verseStr] = line.split(',');
