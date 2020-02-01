@@ -4,7 +4,13 @@ Generates a .ics calendar based off of the [McLean Bible Church Reading plan](ht
 
 ## Usage
 
-NodeJS is required to run this script. Once node is installed,
+NodeJS is required to run this script.
+
+### ESV API
+
+To include memory verse text you must retrieve an API key from https://api.esv.org/docs/passage-text/. You can make use of your API key by setting it to the environment variable named `ESV_TOKEN`.
+
+Once node is installed, and the API key is optionally set you can run the following:
 
 ```bash
 git clone git@github.com:LonnyGomes/mbc-readingplan.git
@@ -57,7 +63,7 @@ Memory Verse: Psalm 106:8
 
 ## Tests
 
-Unit tests are built using jest can can be run with the followign command
+Unit tests are built using jest can can be run with the following command
 
 ```bash
 npm test
