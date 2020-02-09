@@ -1,0 +1,164 @@
+[
+  {
+    "week": "WEEK 7",
+    "startDate": "2020-02-09T05:00:00.000Z",
+    "endDate": "2020-02-15T05:00:00.000Z",
+    "readings": [
+      {
+        "verse": "1 Corinthians 1:1-31",
+        "date": "2020-02-09T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:1-31&version=ESV"
+      },
+      {
+        "verse": "Psalm 40",
+        "date": "2020-02-09T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2040&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 1:1-3",
+        "date": "2020-02-10T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:1-3&version=ESV"
+      },
+      {
+        "verse": "Psalm 41",
+        "date": "2020-02-10T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2041&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 1:4-9",
+        "date": "2020-02-11T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:4-9&version=ESV"
+      },
+      {
+        "verse": "Psalm 42",
+        "date": "2020-02-11T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2042&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 1:10-17",
+        "date": "2020-02-12T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:10-17&version=ESV"
+      },
+      {
+        "verse": "Psalm 43",
+        "date": "2020-02-12T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2043&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 1:18-25",
+        "date": "2020-02-13T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:18-25&version=ESV"
+      },
+      {
+        "verse": "Psalm 44",
+        "date": "2020-02-13T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2044&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 1:26-31",
+        "date": "2020-02-14T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:26-31&version=ESV"
+      },
+      {
+        "verse": "Psalm 45",
+        "date": "2020-02-14T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2045&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 1:1-31",
+        "date": "2020-02-15T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:1-31&version=ESV"
+      },
+      {
+        "verse": "Psalm 46",
+        "date": "2020-02-15T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2046&version=ESV"
+      }
+    ],
+    "memoryVerse": {
+      "verse": "1 Corinthians 1:17",
+      "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%201:17&version=ESV"
+    }
+  },
+  {
+    "week": "WEEK 8",
+    "startDate": "2020-02-16T05:00:00.000Z",
+    "endDate": "2020-02-22T05:00:00.000Z",
+    "readings": [
+      {
+        "verse": "1 Corinthians 2:1-16",
+        "date": "2020-02-16T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:1-16&version=ESV"
+      },
+      {
+        "verse": "Psalm 47",
+        "date": "2020-02-16T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2047&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 2:1-2",
+        "date": "2020-02-17T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:1-2&version=ESV"
+      },
+      {
+        "verse": "Psalm 48",
+        "date": "2020-02-17T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2048&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 2:3-5",
+        "date": "2020-02-18T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:3-5&version=ESV"
+      },
+      {
+        "verse": "Psalm 49",
+        "date": "2020-02-18T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2049&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 2:6-9",
+        "date": "2020-02-19T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:6-9&version=ESV"
+      },
+      {
+        "verse": "Psalm 50",
+        "date": "2020-02-19T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2050&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 2:10-13",
+        "date": "2020-02-20T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:10-13&version=ESV"
+      },
+      {
+        "verse": "Psalm 51",
+        "date": "2020-02-20T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2051&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 2:14-16",
+        "date": "2020-02-21T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:14-16&version=ESV"
+      },
+      {
+        "verse": "Psalm 52",
+        "date": "2020-02-21T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2052&version=ESV"
+      },
+      {
+        "verse": "1 Corinthians 2:1-16",
+        "date": "2020-02-22T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:1-16&version=ESV"
+      },
+      {
+        "verse": "Psalm 53",
+        "date": "2020-02-22T05:00:00.000Z",
+        "url": "https://www.biblegateway.com/passage/?search=Psalm%2053&version=ESV"
+      }
+    ],
+    "memoryVerse": {
+      "verse": "1 Corinthians 2:16",
+      "url": "https://www.biblegateway.com/passage/?search=1%20Corinthians%202:16&version=ESV"
+    }
+  }
+]
