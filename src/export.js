@@ -94,8 +94,8 @@ class Exporter {
                 // determine end of week () which would be saturday
                 .endOf('week')
                 // the duration must go to the start of the new week
-                // sunday + monday === 2 days
-                .add(2, 'd');
+                // which is sunday
+                .add(1, 'd');
             // calculate the number of days between the dates to get the duration
             const duration = endDate.diff(curWeek.startDate, 'days');
 
