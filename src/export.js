@@ -53,7 +53,6 @@ class Exporter {
      */
     genEvents(readingList) {
         let passages = null;
-        let curDay = 1;
         const events = [];
 
         // loop through all weeks
@@ -63,14 +62,14 @@ class Exporter {
 
             for (const passage of passages) {
                 try {
-                    const curTitle = `MBC Reading Plan: ${curWeek.week}, Day ${curDay}`;
-                    const curEvent = this.mapToEvent(curTitle, 1, passage);
+                    const curDesc = `${curWeek.week}\n\nToday's reading`;
+                    const curTitle = `MBC Reading Plan: ${passage.verse}`;
+                    const curEvent = this.mapToEvent(curTitle, 1, passage, curDesc);
                     events.push(curEvent);
                 } catch (error) {
                     console.log('failed to add event', passage, error);
                     continue;
                 }
-                curDay += 1;
             }
         }
 

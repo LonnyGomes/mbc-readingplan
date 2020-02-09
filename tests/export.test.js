@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const BASE_FIXTURES_PATH = path.resolve(__dirname, 'fixtures');
 const Exporter = require('../src/export');
 const SAMPLE_INPUT = require('./fixtures/parsed-sample.json');
+const SAMPLE_MULTI_INPUT = require('./fixtures/parsed-multi-verse-sample.json');
 
 const axios = require('axios').default;
 jest.mock('axios');
@@ -88,6 +89,35 @@ describe('genEvents', () => {
 
         expect(Array.isArray(result)).toEqual(true);
         expect(result.length).toEqual(12);
+
+        const item = result[0];
+        expect(item.start).toEqual([2020, 1, 1]);
+        expect(item.end).toEqual([2020, 1, 2]);
+        expect(item.title).toEqual('MBC Reading Plan: Psalm 1');
+        expect(item.description).toEqual('WEEK 1\n\nToday\'s reading: Psalm 1');
+        expect(item.url).toEqual('https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV');
+    });
+
+    test('should generate array of events for multiple verses per day', () => {
+        const exporter = new Exporter();
+        const result = exporter.genEvents(SAMPLE_MULTI_INPUT);
+
+        expect(Array.isArray(result)).toEqual(true);
+        expect(result.length).toEqual(28);
+
+        let item = result[0];
+        expect(item.start).toEqual([2020, 2, 9]);
+        expect(item.end).toEqual([2020, 2, 10]);
+        expect(item.title).toEqual('MBC Reading Plan: 1 Corinthians 1:1-31');
+        expect(item.description).toEqual('WEEK 7\n\nToday\'s reading: 1 Corinthians 1:1-31');
+        expect(item.url).toEqual('https://www.biblegateway.com/passage/?search=1%20Corinthians%201:1-31&version=ESV');
+
+        item = result[1];
+        expect(item.start).toEqual([2020, 2, 9]);
+        expect(item.end).toEqual([2020, 2, 10]);
+        expect(item.title).toEqual('MBC Reading Plan: Psalm 40');
+        expect(item.description).toEqual('WEEK 7\n\nToday\'s reading: Psalm 40');
+        expect(item.url).toEqual('https://www.biblegateway.com/passage/?search=Psalm%2040&version=ESV');
     });
 });
 
