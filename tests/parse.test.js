@@ -52,7 +52,7 @@ describe('parse', () => {
     });
 
     test('should contain a populated object', async () => {
-        expect.assertions(8);
+        expect.assertions(9);
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
         // date should equal Jan 1 2020
@@ -63,6 +63,7 @@ describe('parse', () => {
         const reading = data.readings[0];
 
         expect(data.week).toEqual('WEEK 1');
+        expect(data.readings.length).toEqual(5);
         expect(data.startDate).toEqual(expectedFirstDate);
         expect(data.endDate).toEqual(expectedSecondDate);
 
@@ -74,6 +75,42 @@ describe('parse', () => {
         expect(reading.verse).toEqual('Psalm 1');
         expect(reading.url).toEqual(
             'https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV'
+        );
+        expect(reading.date).toEqual(expectedFirstDate);
+    });
+
+    test('should handle days with multiple verses', async () => {
+        expect.assertions(13);
+        const parser = new Parser(SAMPLE_MULTI_INPUT);
+        const results = await parser.parse();
+        // date should equal Jan 1 2020
+        const expectedFirstDate = new Date(2020, 1, 9);
+        const expectedSecondDate = new Date(2020, 1, 15);
+
+        const data = results[0];
+
+        expect(results.length).toEqual(2);
+        expect(data.week).toEqual('WEEK 7');
+        expect(data.readings.length).toEqual(14);
+        expect(data.startDate).toEqual(expectedFirstDate);
+        expect(data.endDate).toEqual(expectedSecondDate);
+
+        expect(data.memoryVerse.verse).toEqual('1 Corinthians 1:17');
+        expect(data.memoryVerse.url).toEqual(
+            'https://www.biblegateway.com/passage/?search=1%20Corinthians%201:17&version=ESV'
+        );
+
+        let reading = data.readings[0];
+        expect(reading.verse).toEqual('1 Corinthians 1:1-31');
+        expect(reading.url).toEqual(
+            'https://www.biblegateway.com/passage/?search=1%20Corinthians%201:1-31&version=ESV'
+        );
+        expect(reading.date).toEqual(expectedFirstDate);
+
+        reading = data.readings[1];
+        expect(reading.verse).toEqual('Psalm 40');
+        expect(reading.url).toEqual(
+            'https://www.biblegateway.com/passage/?search=Psalm%2040&version=ESV'
         );
         expect(reading.date).toEqual(expectedFirstDate);
     });

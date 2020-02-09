@@ -76,27 +76,30 @@ class Parser {
                 } else {
                     if (isReadingState) {
                         const [dateStr, verseStr] = line.split(',');
-                        const [passage] = this.parseVerse(verseStr);
-                        const url = this.genBibleGatewayUrl(
-                            passage.book,
-                            passage.chapter,
-                            passage.verse
-                        );
-                        const dateVal = this.parseDate(dateStr);
+                        const passages = this.parseVerse(verseStr);
 
-                        if (!hasReadFirstDate) {
-                            hasReadFirstDate = true;
-                            curWeek.startDate = dateVal;
-                            curWeek.endDate = moment(dateVal)
-                                .add(6, 'days')
-                                .toDate();
-                        }
+                        passages.forEach(passage => {
+                            const url = this.genBibleGatewayUrl(
+                                passage.book,
+                                passage.chapter,
+                                passage.verse
+                            );
+                            const dateVal = this.parseDate(dateStr);
 
-                        curWeek.readings.push({
-                            verse: verseStr,
-                            date: dateVal,
-                            url
-                        });
+                            if (!hasReadFirstDate) {
+                                hasReadFirstDate = true;
+                                curWeek.startDate = dateVal;
+                                curWeek.endDate = moment(dateVal)
+                                    .add(6, 'days')
+                                    .toDate();
+                            }
+
+                            curWeek.readings.push({
+                                verse: passage.label,
+                                date: dateVal,
+                                url
+                            });
+                        })
                     }
                 }
             });
