@@ -114,37 +114,66 @@ class Parser {
         if (!verseStr) {
             throw new Error('verse was not supplied');
         }
-        let re = null;
-        let results = null;
-        let verse = null;
 
-        // check for Book Chapter:verse format
-        re = /(\d*\s*\w+)\s+(\d+):(\d+)/;
-        results = re.exec(verseStr);
-        if (results && results.length === 4) {
-            verse = {
-                label: results[0],
-                book: results[1],
-                chapter: results[2],
-                verse: results[3]
-            };
-        }
+        const verses = [];
+        // multiple verses are separated by pipes
+        const verseTokens = verseStr.split(/\s*\|\s*/);
+        const processVerse = (verseToken) => {
+            let re = null;
+            let results = null;
+            let verse = null;
 
-        if (!verse) {
-            // check for Book Chapter format
-            re = /(\d*\s*\w+)\s+(\d+)/;
-            results = re.exec(verseStr);
-            if (results && results.length === 3) {
+            // check for Book Chapter:verse-verse format
+            re = /(\d*\s*\w+)\s+(\d+):(\d+-\d+)/;
+            results = re.exec(verseToken);
+            if (results && results.length >= 4) {
                 verse = {
-                    label: results[0],
+                    label: verseToken,
                     book: results[1],
                     chapter: results[2],
-                    verse: null
+                    verse: results[3]
                 };
             }
+
+            if (!verse) {
+                // check for Book Chapter:verse format
+                re = /(\d*\s*\w+)\s+(\d+):(\d+)/;
+                results = re.exec(verseToken);
+                if (results && results.length === 4) {
+                    verse = {
+                        label: verseToken,
+                        book: results[1],
+                        chapter: results[2],
+                        verse: results[3]
+                    };
+                }
+            }
+
+            if (!verse) {
+                // check for Book Chapter format
+                re = /(\d*\s*\w+)\s+(\d+)/;
+                results = re.exec(verseToken);
+                if (results && results.length === 3) {
+                    verse = {
+                        label: results[0],
+                        book: results[1],
+                        chapter: results[2],
+                        verse: null
+                    };
+                }
+            }
+
+            return verse;
         }
 
-        return [verse];
+        verseTokens.forEach(curToken => {
+            const curVerse = processVerse(curToken);
+            if (curVerse) {
+                verses.push(curVerse);
+            }
+        });
+
+        return verses;
     }
 
     parseDate(dateStr) {

@@ -1,6 +1,7 @@
 const path = require('path');
 const Parser = require('../src/parse');
 const SAMPLE_INPUT = path.resolve('tests', 'fixtures', 'sample2020.txt');
+const SAMPLE_MULTI_INPUT = path.resolve('tests', 'fixtures', 'sample2020-mult-verse.txt');
 
 describe('constructor', () => {
     test('should accept input path', () => {
@@ -123,6 +124,26 @@ describe('parseVerse', () => {
         expect(result.chapter).toEqual('3');
         expect(result.verse).toEqual('1');
     });
+
+    test('should parse multiple verses separated by a "|"', () => {
+        let result = null;
+        const parser = new Parser(SAMPLE_MULTI_INPUT);
+        const results = parser.parseVerse('2 Samuel 3:1 | 1 Corinthians 1:1-31');
+
+        expect(Array.isArray(results)).toBeTruthy();
+        expect(results.length).toBe(2);
+        result = results[0];
+        expect(result.label).toEqual('2 Samuel 3:1');
+        expect(result.book).toEqual('2 Samuel');
+        expect(result.chapter).toEqual('3');
+        expect(result.verse).toEqual('1');
+        result = results[1];
+        expect(result.label).toEqual('1 Corinthians 1:1-31');
+        expect(result.book).toEqual('1 Corinthians');
+        expect(result.chapter).toEqual('1');
+        expect(result.verse).toEqual('1-31');
+    });
+
 });
 
 describe('parseDate', () => {
