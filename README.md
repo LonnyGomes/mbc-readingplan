@@ -1,5 +1,7 @@
 # MBC Reading Plan calendar
 
+![Node CI](https://github.com/LonnyGomes/mbc-readingplan/workflows/Node%20CI/badge.svg)
+
 Generates a .ics calendar based off of the [McLean Bible Church Reading plan](https://mcleanbible.org/wp-content/uploads/2019/12/2020BibleReadingPlan.pdf).
 
 ## Usage
