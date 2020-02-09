@@ -220,6 +220,17 @@ describe('genBibleGatewayUrl', () => {
 
         expect(result).toEqual(expected);
     });
+
+    test('should return url when a range of verses is supplied', () => {
+        let result = null;
+        const expected =
+            'https://www.biblegateway.com/passage/?search=Psalm%2031:1-2&version=ESV';
+        const parser = new Parser(SAMPLE_INPUT);
+
+        result = parser.genBibleGatewayUrl('Psalm', 31, '1-2');
+
+        expect(result).toEqual(expected);
+    });
 });
 
 describe('genEsvApiUrl', () => {
