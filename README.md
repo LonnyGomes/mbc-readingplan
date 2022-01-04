@@ -70,3 +70,9 @@ Unit tests are built using jest can can be run with the following command
 ```bash
 npm test
 ```
+
+To test while developing run the the test watch command:
+
+```bash
+npm run test:watch
+```
