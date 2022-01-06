@@ -68,7 +68,6 @@ describe('parse', () => {
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
 
-        console.log('results', JSON.stringify(results, null, 2));
         const data = results[0];
 
         expect(data.verse).toEqual(EXPECTED_VERSE);
