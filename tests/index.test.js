@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const readingPlanExport = require('../src/index');
 const BASE_FIXTURES_PATH = path.resolve(__dirname, 'fixtures');
-const INPUT_FILE = path.resolve(BASE_FIXTURES_PATH, 'sample2020.txt');
+const INPUT_FILE = path.resolve(BASE_FIXTURES_PATH, 'sample-2022.txt');
 const OUTPUT_PATH = path.resolve(BASE_FIXTURES_PATH, 'tmp-index-test.ics');
 
 describe('index', () => {
