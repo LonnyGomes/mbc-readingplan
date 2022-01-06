@@ -1,0 +1,365 @@
+January 1,Ezra 1 | Acts 1
+January 2,Ezra 2 | Acts 2
+January 3,Ezra 3 | Acts 3
+January 4,Ezra 4 | Acts 4
+January 5,Ezra 5 | Acts 5
+January 6,Ezra 6 | Acts 6
+January 7,Ezra 7 | Acts 7
+January 8,Ezra 8 | Acts 8
+January 9,Ezra 9 | Acts 9
+January 10,Ezra 10 | Acts 10 
+January 11,Nehemiah 1 | Acts 11
+January 12,Nehemiah 2 | Acts 12
+January 13,Nehemiah 3 | Acts 13
+January 14,Nehemiah 4 | Acts 14
+January 15,Nehemiah 5 | Acts 15
+January 16,Nehemiah 6 | Acts 16
+January 17,Nehemiah 7 | Acts 17
+January 18,Nehemiah 8 | Acts 18
+January 19,Nehemiah 9 | Acts 19 
+January 20,Nehemiah 10 | Acts 20 
+January 21,Nehemiah 11 | Acts 21 
+January 22,Nehemiah 12 | Acts 22 
+January 23,Nehemiah 13 | Acts 23 
+January 24,Esther 1 | Acts 24 
+January 25,Esther 2 | Acts 25 
+January 26,Esther 3 | Acts 26 
+January 27,Esther 4 | Acts 27 
+January 28,Esther 5 | Acts 28 
+January 29,Esther 6 | Romans 1 
+January 30,Esther 7 | Romans 2 
+January 31,Esther 8 | Romans 
+February 1,Esther 9-10 | Romans 4 
+February 2,Job 1 | Romans 5
+February 3,Job 2 | Romans 6
+February 4,Job 3 | Romans 7
+February 5,Job 4 | Romans 8
+February 6,Job 5 | Romans 9
+February 7,Job 6 | Romans 10
+February 8,Job 7 | Romans 11
+February 9,Job 8 | Romans 12
+February 10,Job 9 | Romans 13
+February 11,Job 10 | Romans 14
+February 12,Job 11 | Romans 15
+February 13,Job 12 | Romans 16
+February 14,Job 13 | 1 Corinthians 1
+February 15,Job 14 | 1 Corinthians 2 
+February 16,Job 15 | 1 Corinthians 3 
+February 17,Job 16-17 | 1 Corinthians 4 
+February 18,Job 18 | 1 Corinthians 5 
+February 19,Job 19 | 1 Corinthians 6 
+February 20,Job 20 | 1 Corinthians 7 
+February 21,Job 21 | 1 Corinthians 8 
+February 22,Job 22 | 1 Corinthians 9 
+February 23,Job 23 | 1 Corinthians 10 
+February 24,Job 24 | 1 Corinthians 11 
+February 25,Job 25-26 | 1 Corinthians 12 
+February 26,Job 27 | 1 Corinthians 13 
+February 27,Job 28 | 1 Corinthians 14 
+February 28,Job 29 | 1 Corinthians 15
+March 1,Job 30 | 1 Corinthians 16
+March 2,Job 31 | 2 Corinthians 1
+March 3,Job 32 | 2 Corinthians 2
+March 4,Job 33 | 2 Corinthians 3
+March 5,Job 34 | 2 Corinthians 4
+March 6,Job 35 | 2 Corinthians 5
+March 7,Job 36 | 2 Corinthians 6
+March 8,Job 37 | 2 Corinthians 7
+March 9,Job 38 | 2 Corinthians 8
+March 10,Job 39 | 2 Corinthians 9
+March 11,Job 40 | 2 Corinthians 10
+March 12,Job 41 | 2 Corinthians 11
+March 13,Job 42 | 2 Corinthians 12 
+March 14,Proverbs 1 | 2 Corinthians 13 
+March 15,Proverbs 2 | Galatians 1 
+March 16,Proverbs 3 | Galatians 2 
+March 17,Proverbs 4 | Galatians 3 
+March 18,Proverbs 5 | Galatians 4 
+March 19,Proverbs 6 | Galatians 5 
+March 20,Proverbs 7 | Galatians 6 
+March 21,Proverbs 8 | Ephesians 1 
+March 22,Proverbs 9 | Ephesians 2 
+March 23,Proverbs 10 | Ephesians 3 
+March 24,Proverbs 11 | Ephesians 4 
+March 25,Proverbs 12 | Ephesians 5 
+March 26,Proverbs 13 | Ephesians 6 
+March 27,Proverbs 14 | Philippians 1 
+March 28,Proverbs 15 | Philippians 2 
+March 29,Proverbs 16 | Philippians 3 
+March 30,Proverbs 17 | Philippians 4 
+March 31,Proverbs 18 | Colossians 1
+April 1,Proverbs 19 | Colossians 2 
+April 2,Proverbs 20 | Colossians 3 
+April 3,Proverbs 21 | Colossians 4 
+April 4,Proverbs 22 | 1 Thessalonians 1 
+April 5,Proverbs 23 | 1 Thessalonians 2 
+April 6,Proverbs 24 | 1 Thessalonians 3 
+April 7,Proverbs 25 | 1 Thessalonians 4 
+April 8,Proverbs 26 | 1 Thessalonians 5 
+April 9,Proverbs 27 | 2 Thessalonians 1 
+April 10,Proverbs 28 | 2 Thessalonians 2 
+April 11,Proverbs 29 | 2 Thessalonians 3 
+April 12,Proverbs 30 | 1 Timothy 1 
+April 13,Proverbs 31 | 1 Timothy 2 
+April 14,Ecclesiastes 1 | 1 Timothy 3 
+April 15,Ecclesiastes 2 | 1 Timothy 4 
+April 16,Ecclesiastes 3 | 1 Timothy 5 
+April 17,Ecclesiastes 4 | 1 Timothy 6 
+April 18,Ecclesiastes 5 | 2 Timothy 1 
+April 19,Ecclesiastes 6 | 2 Timothy 2 
+April 20,Ecclesiastes 7 | 2 Timothy 3 
+April 21,Ecclesiastes 8 | 2 Timothy 4 
+April 22,Ecclesiastes 9 | Titus 1 
+April 23,Ecclesiastes 10 | Titus 2 
+April 24,Ecclesiastes 11 | Titus 3 
+April 25,Ecclesiastes 12 | Philemon 1 
+April 26,Song of Solomon 1 | Hebrews 1 
+April 27,Song of Solomon 2 | Hebrews 2 
+April 28,Song of Solomon 3 | Hebrews 3 
+April 29,Song of Solomon 4 | Hebrews 4 
+April 30,Song of Solomon 5 | Hebrews 5
+May 1,Song of Solomon 6 | Hebrews 6 
+May 2,Song of Solomon 7 | Hebrews 7 
+May 3,Song of Solomon 8 | Hebrews 8 
+May 4,Isaiah 1 | Hebrews 9
+May 5,Isaiah 2 | Hebrews 10 
+May 6,Isaiah 3-4 | Hebrews 11 
+May 7,Isaiah 5 | Hebrews 12 
+May 8,Isaiah 6 | Hebrews 13 
+May 9,Isaiah 7 | James 1 
+May 10,Isaiah 8:1-9:7 | James 2 
+May 11,Isaiah 9:8-10:4 | James 3 
+May 12,Isaiah 10:5-34 | James 4 
+May 13,Isaiah 11-12 | James 5 
+May 14,Isaiah 13 | 1 Peter 1 
+May 15,Isaiah 14 | 1 Peter 2 
+May 16,Isaiah 15 | 1 Peter 3 
+May 17,Isaiah 16 | 1 Peter 4 
+May 18,Isaiah 17-18 | 1 Peter 5 
+May 19,Isaiah 19-20 | 2 Peter 1 
+May 20,Isaiah 21 | 2 Peter 2 
+May 21,Isaiah 22 | 2 Peter 3 
+May 22,Isaiah 23 | 1 John 1 
+May 23,Isaiah 24 | 1 John 2 
+May 24,Isaiah 25 | 1 John 3 
+May 25,Isaiah 26 | 1 John 4 
+May 26,Isaiah 27 | 1 John 5 
+May 27,Isaiah 28 | 2 John 1 
+May 28,Isaiah 29 | 3 John 1 
+May 29,Isaiah 30 | Jude 1
+May 30,Isaiah 31 | Revelation 1 
+May 31,Isaiah 32 | Revelation 2
+June 1,Isaiah 33 | Revelation 3 
+June 2,Isaiah 34 | Revelation 4 
+June 3,Isaiah 35 | Revelation 5 
+June 4,Isaiah 36 | Revelation 6 
+June 5,Isaiah 37 | Revelation 7 
+June 6,Isaiah 38 | Revelation 8 
+June 7,Isaiah 39 | Revelation 9 
+June 8,Isaiah 40 | Revelation 10 
+June 9,Isaiah 41 | Revelation 11 
+June 10,Isaiah 42 | Revelation 12 
+June 11,Isaiah 43 | Revelation 13 
+June 12,Isaiah 44 | Revelation 14 
+June 13,Isaiah 45 | Revelation 15 
+June 14,Isaiah 46 | Revelation 16 
+June 15,Isaiah 47 | Revelation 17 
+June 16,Isaiah 48 | Revelation 18 
+June 17,Isaiah 49 | Revelation 19 
+June 18,Isaiah 50 | Revelation 20 
+June 19,Isaiah 51 | Revelation 21 
+June 20,Isaiah 52 | Revelation 22 
+June 21,Isaiah 53 | Matthew 1 
+June 22,Isaiah 54 | Matthew 2 
+June 23,Isaiah 55 | Matthew 3 
+June 24,Isaiah 56 | Matthew 4 
+June 25,Isaiah 57 | Matthew 5 
+June 26,Isaiah 58 | Matthew 6 
+June 27,Isaiah 59 | Matthew 7 
+June 28,Isaiah 60 | Matthew 8 
+June 29,Isaiah 61 | Matthew 9 
+June 30,Isaiah 62 | Matthew 10
+July 1,Isaiah 63 | Matthew 11 
+July 2,Isaiah 64 | Matthew 12 
+July 3,Isaiah 65 | Matthew 13 
+July 4,Isaiah 66 | Matthew 14 
+July 5,Jeremiah 1 | Matthew 15 
+July 6,Jeremiah 2 | Matthew 16 
+July 7,Jeremiah 3 | Matthew 17 
+July 8,Jeremiah 4 | Matthew 18 
+July 9,Jeremiah 5 | Matthew 19 
+July 10,Jeremiah 6 | Matthew 20 
+July 11,Jeremiah 7 | Matthew 21 
+July 12,Jeremiah 8 | Matthew 22 
+July 13,Jeremiah 9 | Matthew 23 
+July 14,Jeremiah 10 | Matthew 24 
+July 15,Jeremiah 11 | Matthew 25 
+July 16,Jeremiah 12 | Matthew 26 
+July 17,Jeremiah 13 | Matthew 27 
+July 18,Jeremiah 14 | Matthew 28 
+July 19,Jeremiah 15 | Mark 1 
+July 20,Jeremiah 16 | Mark 2 
+July 21,Jeremiah 17 | Mark 3 
+July 22,Jeremiah 18 | Mark 4 
+July 23,Jeremiah 19 | Mark 5 
+July 24,Jeremiah 20 | Mark 6 
+July 25,Jeremiah 21 | Mark 7 
+July 26,Jeremiah 22 | Mark 8 
+July 27,Jeremiah 23 | Mark 9 
+July 28,Jeremiah 24 | Mark 10 
+July 29,Jeremiah 25 | Mark 11 
+July 30,Jeremiah 26 | Mark 12 
+July 31,Jeremiah 27 | Mark 13
+August 1,Jeremiah 28 | Mark 14 
+August 2,Jeremiah 29 | Mark 15 
+August 3,Jeremiah 30-31 | Mark 16 
+August 4,Jeremiah 32 | Psalm 1-2 
+August 5,Jeremiah 33 | Psalm 3-4 
+August 6,Jeremiah 34 | Psalm 5-6 
+August 7,Jeremiah 35 | Psalm 7-8 
+August 8,Jeremiah 36 | Jeremiah 45 | Psalm 9 
+August 9,Jeremiah 37 | Psalm 10 
+August 10,Jeremiah 38 | Psalm 11-12 
+August 11,Jeremiah 39 | Psalm 13-14 
+August 12,Jeremiah 40 | Psalm 15-16 
+August 13,Jeremiah 41 | Psalm 17 
+August 14,Jeremiah 42 | Psalm 18 
+August 15,Jeremiah 43 | Psalm 19 
+August 16,Jeremiah 44 | Psalm 20-21 
+August 17,Jeremiah 46 | Psalm 22 
+August 18,Jeremiah 47 | Psalm 23-24 
+August 19,Jeremiah 48 | Psalm 25 
+August 20,Jeremiah 49 | Psalm 26-27 
+August 21,Jeremiah 50 | Psalm 28-29 
+August 22,Jeremiah 51 | Psalm 30 
+August 23,Jeremiah 52 | Psalm 31 
+August 24,Lamentations 1 | Psalm 32 
+August 25,Lamentations 2 | Psalm 33 
+August 26,Lamentations 3 | Psalm 34 
+August 27,Lamentations 4 | Psalm 35 
+August 28,Lamentations 5 | Psalm 36 
+August 29,Ezekiel 1 | Psalm 37 
+August 30,Ezekiel 2 | Psalm 38 
+August 31,Ezekiel 3 | Psalm 39
+September 1,Ezekiel 4 | Psalm 40-41 
+September 2,Ezekiel 5 | Psalm 42-43 
+September 3,Ezekiel 6 | Psalm 44 
+September 4,Ezekiel 7 | Psalm 45 
+September 5,Ezekiel 8 | Psalm 46-47 
+September 6,Ezekiel 9 | Psalm 48 
+September 7,Ezekiel 10 | Psalm 49 
+September 8,Ezekiel 11 | Psalm 50 
+September 9,Ezekiel 12 | Psalm 51 
+September 10,Ezekiel 13 | Psalm 52-54 
+September 11,Ezekiel 14 | Psalm 55 
+September 12,Ezekiel 15 | Psalm 56-57 
+September 13,Ezekiel 16 | Psalm 58-59 
+September 14,Ezekiel 17 | Psalm 60-61 
+September 15,Ezekiel 18 | Psalm 62-63 
+September 16,Ezekiel 19 | Psalm 64-65 
+September 17,Ezekiel 20 | Psalm 66-67 
+September 18,Ezekiel 21 | Psalm 68 
+September 19,Ezekiel 22 | Psalm 69 
+September 20,Ezekiel 23 | Psalm 70-71 
+September 21,Ezekiel 24 | Psalm 72 
+September 22,Ezekiel 25 | Psalm 73 
+September 23,Ezekiel 26 | Psalm 74 
+September 24,Ezekiel 27 | Psalm 75-76 
+September 25,Ezekiel 28 | Psalm 77 
+September 26,Ezekiel 29 | Psalm 78:1-39 
+September 27,Ezekiel 30 | Psalm 78:40-72 
+September 28,Ezekiel 31 | Psalm 79 
+September 29,Ezekiel 32 | Psalm 80 
+September 30,Ezekiel 33 | Psalm 81-82
+October 1,Ezekiel 34 | Psalm 83-84 
+October 2,Ezekiel 35 | Psalm 85
+October 3,Ezekiel 36 | Psalm 86
+October 4,Ezekiel 37 | Psalm 87-88 
+October 5,Ezekiel 38 | Psalm 89
+October 6,Ezekiel 39 | Psalm 90
+October 7,Ezekiel 40 | Psalm 91
+October 8,Ezekiel 41 | Psalm 92-93 
+October 9,Ezekiel 42 | Psalm 94
+October 10,Ezekiel 43 | Psalm 95-96 
+October 11,Ezekiel 44 | Psalm 97-98 
+October 12,Ezekiel 45 | Psalm 99-101 
+October 13,Ezekiel 46 | Psalm 102 
+October 14,Ezekiel 47 | Psalm 103 
+October 15,Ezekiel 48 | Psalm 104
+October 16,Daniel 1 | Psalm 105
+October 17,Daniel 2 | Psalm 106
+October 18,Daniel 3 | Psalm 107
+October 19,Daniel 4 | Psalm 108-109 
+October 20,Daniel 5 | Psalm 110-111 
+October 21,Daniel 6 | Psalm 112-113 
+October 22,Daniel 7 | Psalm 114-115 
+October 23,Daniel 8 | Psalm 116
+October 24,Daniel 9 | Psalm 117-118 
+October 25,Daniel 10 | Psalm 119:1-24 
+October 26,Daniel 11 | Psalm 119:25-48 
+October 27,Daniel 12 | Psalm 119:49-72 
+October 28,Hosea 1 | Psalm 119:73-96 
+October 29,Hosea 2 | Psalm 119:97-120 
+October 30,Hosea 3-4 | Psalm 119:121-144 
+October 31,Hosea 5-6 | Psalm 119:145-176
+November 1,Hosea 7 | Psalm 120-122 
+November 2,Hosea 8 | Psalm 123-125 
+November 3,Hosea 9 | Psalm 126-128 
+November 4,Hosea 10 | Psalm 129-131 
+November 5,Hosea 11 | Psalm 132-134 
+November 6,Hosea 12 | Psalm 135-136 
+November 7,Hosea 13 | Psalm 137-138 
+November 8,Hosea 14 | Psalm 139 
+November 9,Joel 1 | Psalm 140-141 
+November 10,Joel 2 | Psalm 142
+November 11,Joel 3 | Psalm 143 
+November 12,Amos 1 | Psalm 144 
+November 13,Amos 2 | Psalm 145 
+November 14,Amos 3 | Psalm 146-147 
+November 15,Amos 4 | Psalm 148-150 
+November 16,Amos 5 | Luke 1:1-38 
+November 17,Amos 6 | Luke 1:39-80 
+November 18,Amos 7 | Luke 2
+November 19,Amos 8 | Luke 3 
+November 20,Amos 9 | Luke 4 
+November 21,Obadiah 1 | Luke 5 
+November 22,Jonah 1 | Luke 6 
+November 23,Jonah 2 | Luke 7 
+November 24,Jonah 3 | Luke 8 
+November 25,Jonah 4 | Luke 9 
+November 26,Micah 1 | Luke 10 
+November 27,Micah 2 | Luke 11 
+November 28,Micah 3 | Luke 12 
+November 29,Micah 4 | Luke 13 
+November 30,Micah 5 | Luke 14
+December 1,Micah 6 | Luke 15
+December 2,Micah 7 | Luke 16
+December 3,Nahum 1 | Luke 17
+December 4,Nahum 2 | Luke 18
+December 5,Nahum 3 | Luke 19 
+December 6,Habakkuk 1 | Luke 20 
+December 7,Habakkuk 2 | Luke 21 
+December 8,Habakkuk 3 | Luke 22 
+December 9,Zephaniah 1 | Luke 23 
+December 10,Zephaniah 2 | Luke 24 
+December 11,Zephaniah 3 | John 1 
+December 12,Haggai 1 | John 2
+December 13,Haggai 2 | John 3 
+December 14,Zechariah 1 | John 4 
+December 15,Zechariah 2 | John 5 
+December 16,Zechariah 3 | John 6 
+December 17,Zechariah 4 | John 7 
+December 18,Zechariah 5 | John 8 
+December 19,Zechariah 6 | John 9 
+December 20,Zechariah 7 | John 10 
+December 21,Zechariah 8 | John 11 
+December 22,Zechariah 9 | John 12 
+December 23,Zechariah 10 | John 13 
+December 24,Zechariah 11 | John 14 
+December 25,Zechariah 12:1-13:1 | John 15 
+December 26,Zechariah 13:2-9 | John 16 
+December 27,Zechariah 14 | John 17 
+December 28,Malachi 1 | John 18
+December 29,Malachi 2 | John 19 
+December 30,Malachi 3 | John 20 
+December 31,Malachi 4 | John 21
