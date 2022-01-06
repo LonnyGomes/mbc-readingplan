@@ -1,7 +1,11 @@
 const path = require('path');
 const Parser = require('../src/parse');
-const SAMPLE_INPUT = path.resolve('tests', 'fixtures', 'sample2020.txt');
-const SAMPLE_MULTI_INPUT = path.resolve('tests', 'fixtures', 'sample2020-mult-verse.txt');
+const SAMPLE_INPUT = path.resolve('tests', 'fixtures', 'sample-2022.txt');
+const SAMPLE_MULTI_INPUT = path.resolve(
+    'tests',
+    'fixtures',
+    'sample2020-mult-verse.txt'
+);
 
 describe('constructor', () => {
     test('should accept input path', () => {
@@ -35,51 +39,44 @@ describe('load', () => {
 
 describe('parse', () => {
     test('should return an array of results', async () => {
-        expect.assertions(9);
+        const EXPECTED_RESULTS_COUNT = 17;
+        const EXPECTED_ASSERTIONS = 6;
+
+        expect.assertions(EXPECTED_ASSERTIONS);
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
-        expect(Array.isArray(results)).toBeTruthy();
+
         expect(results).toBeDefined();
-        expect(results.length).toEqual(2);
+        expect(Array.isArray(results)).toBeTruthy();
+        expect(results.length).toEqual(EXPECTED_RESULTS_COUNT);
 
         const data = results[0];
-        expect(data.week).toBeDefined();
-        expect(data.startDate).toBeDefined();
-        expect(data.endDate).toBeDefined();
-        expect(Array.isArray(data.readings)).toBeTruthy();
-        expect(data.readings).toBeDefined();
-        expect(data.memoryVerse).toBeDefined();
+        expect(data.verse).toBeDefined();
+        expect(data.date).toBeDefined();
+        expect(data.url).toBeDefined();
     });
 
     test('should contain a populated object', async () => {
-        expect.assertions(9);
+        const EXPECTED_ASSERTIONS = 3;
+        const EXPECTED_VERSE = 'Ezra 1';
+        // date should equal Jan 1 2022
+        const EXPECTED_DATE = new Date(2022, 0, 1);
+        const EXPECTED_URL =
+            'https://www.biblegateway.com/passage/?search=Ezra%201&version=ESV';
+
+        expect.assertions(EXPECTED_ASSERTIONS);
         const parser = new Parser(SAMPLE_INPUT);
         const results = await parser.parse();
-        // date should equal Jan 1 2020
-        const expectedFirstDate = new Date(2020, 0, 1);
-        const expectedSecondDate = new Date(2020, 0, 7);
 
+        console.log('results', JSON.stringify(results, null, 2));
         const data = results[0];
-        const reading = data.readings[0];
 
-        expect(data.week).toEqual('WEEK 1');
-        expect(data.readings.length).toEqual(5);
-        expect(data.startDate).toEqual(expectedFirstDate);
-        expect(data.endDate).toEqual(expectedSecondDate);
-
-        expect(data.memoryVerse.verse).toEqual('Psalm 101:2');
-        expect(data.memoryVerse.url).toEqual(
-            'https://www.biblegateway.com/passage/?search=Psalm%20101:2&version=ESV'
-        );
-
-        expect(reading.verse).toEqual('Psalm 1');
-        expect(reading.url).toEqual(
-            'https://www.biblegateway.com/passage/?search=Psalm%201&version=ESV'
-        );
-        expect(reading.date).toEqual(expectedFirstDate);
+        expect(data.verse).toEqual(EXPECTED_VERSE);
+        expect(data.date).toEqual(EXPECTED_DATE);
+        expect(data.url).toEqual(EXPECTED_URL);
     });
 
-    test('should handle days with multiple verses', async () => {
+    test.skip('should handle days with multiple verses', async () => {
         expect.assertions(13);
         const parser = new Parser(SAMPLE_MULTI_INPUT);
         const results = await parser.parse();
@@ -165,7 +162,9 @@ describe('parseVerse', () => {
     test('should parse multiple verses separated by a "|"', () => {
         let result = null;
         const parser = new Parser(SAMPLE_MULTI_INPUT);
-        const results = parser.parseVerse('2 Samuel 3:1 | 1 Corinthians 1:1-31');
+        const results = parser.parseVerse(
+            '2 Samuel 3:1 | 1 Corinthians 1:1-31'
+        );
 
         expect(Array.isArray(results)).toBeTruthy();
         expect(results.length).toBe(2);
@@ -180,7 +179,6 @@ describe('parseVerse', () => {
         expect(result.chapter).toEqual('1');
         expect(result.verse).toEqual('1-31');
     });
-
 });
 
 describe('parseDate', () => {
@@ -208,7 +206,7 @@ describe('parseDate', () => {
 
     test('should a Date object for a valid date string', () => {
         const SAMPLE_DATE = 'Jan 10';
-        const expected = new Date(2020, 0, 10);
+        const expected = new Date(2022, 0, 10);
         let result = null;
         var parser = new Parser(SAMPLE_INPUT);
         result = parser.parseDate(SAMPLE_DATE);
