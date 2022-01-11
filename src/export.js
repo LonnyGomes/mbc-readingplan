@@ -4,7 +4,7 @@ const fs = require('fs-extra');
 const axios = require('axios').default;
 
 class Exporter {
-    constructor() { }
+    constructor() {}
 
     /**
      * Accepts a passage entry and creates an event object parsable by the ics module
@@ -28,9 +28,7 @@ class Exporter {
         const month = date.getMonth() + 1;
         const day = date.getDate();
 
-        const endDate = moment(passage.date)
-            .add(duration, 'days')
-            .toDate();
+        const endDate = moment(passage.date).add(duration, 'days').toDate();
         const endYear = endDate.getFullYear();
         const endMonth = endDate.getMonth() + 1;
         const endDay = endDate.getDate();
@@ -40,7 +38,7 @@ class Exporter {
             end: [endYear, endMonth, endDay],
             title,
             description: `${prefaceText}: ${passage.verse}`,
-            url: passage.url
+            url: passage.url,
         };
 
         return event;
@@ -48,7 +46,7 @@ class Exporter {
 
     /**
      * Generates ics-compliant objects for all reading passages
-     * @param {array} readingList array of weeks that compose the reading list
+     * @param {array} readingList array of verse objects
      * @returns {array} list of ics-compliant objects
      */
     genEvents(readingList) {
@@ -56,20 +54,15 @@ class Exporter {
         const events = [];
 
         // loop through all weeks
-        for (const curWeek of readingList) {
-            // loop through all the readings for the week
-            passages = curWeek.readings;
-
-            for (const passage of passages) {
-                try {
-                    const curDesc = `${curWeek.week}\n\nToday's reading`;
-                    const curTitle = `MBC Reading Plan: ${passage.verse}`;
-                    const curEvent = this.mapToEvent(curTitle, 1, passage, curDesc);
-                    events.push(curEvent);
-                } catch (error) {
-                    console.log('failed to add event', passage, error);
-                    continue;
-                }
+        for (const passage of readingList) {
+            try {
+                const curDesc = `Today's reading`;
+                const curTitle = `MBC Reading Plan: ${passage.verse}`;
+                const curEvent = this.mapToEvent(curTitle, 1, passage, curDesc);
+                events.push(curEvent);
+            } catch (error) {
+                console.log('failed to add event', passage, error);
+                continue;
             }
         }
 
@@ -88,7 +81,7 @@ class Exporter {
         for (const curWeek of readingList) {
             // loop through all the readings for the week
             const memoryVersePassage = Object.assign(curWeek.memoryVerse, {
-                date: curWeek.startDate
+                date: curWeek.startDate,
             });
             const endDate = moment(curWeek.startDate)
                 // determine end of week () which would be saturday
@@ -107,7 +100,10 @@ class Exporter {
                     memoryVersePassage,
                     "This week's memory verse"
                 );
-                const { data } = await this.getVerseContents(curWeek.memoryVerse.apiHeader, curWeek.memoryVerse.apiUrl);
+                const { data } = await this.getVerseContents(
+                    curWeek.memoryVerse.apiHeader,
+                    curWeek.memoryVerse.apiUrl
+                );
                 // if the verse contents were retrieved, store them in the description
                 if (data && data.passages) {
                     curEvent.description = data.passages[0];

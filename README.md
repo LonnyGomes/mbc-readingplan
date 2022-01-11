@@ -20,47 +20,37 @@ cd mbc-readingplan
 npm install -g .
 # generate daily reading calendar
 mbc-calexport -i input/readingplan-2020-psalm.txt -o calendar.ics
-# generate memory verse calendar
-mbc-calexport -m -i input/readingplan-2020-psalm.txt -o memory-verse-calendar.ics
 ```
 
 ## Expected text format
 
-This export script expects a text representation of the reading plan in the following format:
+This export script expects a text representation of the reading plan in the following CSV format:
 
 ```
-[WEEK #]
-[DATE],[VERSE]
-Memory Verse: [VERSE]
+[DATE],[VERSE] | [VERSE]
+[DATE],[VERSE] | [VERSE]
+[DATE],[VERSE] | [VERSE]
 ...
 ```
 
 | Key      | Format                             | Examples             |
 | -------- | ---------------------------------- | -------------------- |
-| [WEEK #] | WEEK \d                            | WEEK 1, WEEK 4       |
-| [DATE]   | Month Day                          | Jan 6, Feb 2         |
-| [VERSE]  | Book Chapter or Book Chapter:Verse | Psalm 8, Psalm 101:2 |
+| *[DATE]*   | Month Day                          | Jan 6, Feb 2         |
+| *[VERSE]*  | Book Chapter or Book Chapter:Verse | Psalm 8, Psalm 101:2 |
+| *\|*       | Separator for multiple verses
 
 ### Example input file
 
 ```
-WEEK 1
-Jan 1,Psalm 1
-Jan 2,Psalm 2
-Jan 3,Psalm 3
-Jan 4,Psalm 4
-Jan 5,Psalm 5
-Memory Verse: Psalm 101:2
-
-WEEK 2
-Jan 6,Psalm 6
-Jan 7,Psalm 7
-Jan 8,Psalm 8
-Jan 9,Psalm 9
-Jan 10,Psalm 10
-Jan 11,Psalm 11
-Jan 12,Psalm 12
-Memory Verse: Psalm 106:8
+January 1,Ezra 1 | Acts 1
+January 2,Ezra 2 | Acts 2
+January 3,Ezra 3 | Acts 3
+January 4,Ezra 4 | Acts 4
+January 5,Ezra 5 | Acts 5
+January 6,Ezra 6 | Acts 6
+January 7,Ezra 7 | Acts 7
+January 8,Ezra 8 | Acts 8
+January 9,Ezra 9 | Acts 9 | Acts 10
 ```
 
 ## Tests
@@ -69,4 +59,10 @@ Unit tests are built using jest can can be run with the following command
 
 ```bash
 npm test
+```
+
+To test while developing run the the test watch command:
+
+```bash
+npm run test:watch
 ```

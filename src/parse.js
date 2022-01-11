@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 var moment = require('moment');
 const readline = require('readline');
 
+const PLAN_YEAR = 2022;
 class Parser {
     constructor(inputPath) {
         if (!inputPath) {
@@ -27,87 +28,34 @@ class Parser {
             const fileStream = fs.createReadStream(this.inputPath);
             const rl = readline.createInterface({
                 input: fileStream,
-                crlfDelay: Infinity
+                crlfDelay: Infinity,
             });
 
-            fileStream.on('error', err => reject(err));
+            fileStream.on('error', (err) => reject(err));
 
-            rl.on('line', line => {
-                if (line.match(/WEEK \d/)) {
-                    if (curWeek) {
-                        data.push(curWeek);
-                    }
+            rl.on('line', (line) => {
+                const [dateStr, verseStr] = line.split(',');
+                const passages = this.parseVerse(verseStr);
 
-                    isReadingState = true;
-                    hasReadFirstDate = false;
-
-                    curWeek = {
-                        week: line,
-                        startDate: null,
-                        endDate: null,
-                        readings: [],
-                        memoryVerse: {}
-                    };
-                } else if (line.match(/^Memory Verse:/)) {
-                    const [mvToken, memoryVerseStr] = line.split(
-                        /^Memory Verse: /
-                    );
-                    isReadingState = false;
-                    const [passage] = this.parseVerse(memoryVerseStr);
+                passages.forEach((passage) => {
                     const url = this.genBibleGatewayUrl(
                         passage.book,
                         passage.chapter,
                         passage.verse
                     );
-                    curWeek.memoryVerse = {
-                        verse: memoryVerseStr,
-                        url
-                    };
+                    const dateVal = this.parseDate(dateStr);
 
-                    // if a token is supplied, generate api URL and header for memory verse
-                    if (token) {
-                        // generate the api request header/url to retrieve the text
-                        const apiRequest = this.genEsvApiUrl(token, passage.book, passage.chapter, passage.verse);
-                        Object.assign(curWeek.memoryVerse, {
-                            apiUrl: apiRequest.url,
-                            apiHeader: apiRequest.header
-                        });
-                    }
-                } else {
-                    if (isReadingState) {
-                        const [dateStr, verseStr] = line.split(',');
-                        const passages = this.parseVerse(verseStr);
-
-                        passages.forEach(passage => {
-                            const url = this.genBibleGatewayUrl(
-                                passage.book,
-                                passage.chapter,
-                                passage.verse
-                            );
-                            const dateVal = this.parseDate(dateStr);
-
-                            if (!hasReadFirstDate) {
-                                hasReadFirstDate = true;
-                                curWeek.startDate = dateVal;
-                                curWeek.endDate = moment(dateVal)
-                                    .add(6, 'days')
-                                    .toDate();
-                            }
-
-                            curWeek.readings.push({
-                                verse: passage.label,
-                                date: dateVal,
-                                url
-                            });
-                        })
-                    }
-                }
+                    data.push({
+                        verse: passage.label,
+                        date: dateVal,
+                        url,
+                    });
+                });
             });
 
-            rl.on('error', err => reject(err));
+            rl.on('error', (err) => reject(err));
 
             rl.on('close', () => {
-                data.push(curWeek);
                 resolve(data);
             });
         });
@@ -134,7 +82,7 @@ class Parser {
                     label: verseToken,
                     book: results[1],
                     chapter: results[2],
-                    verse: results[3]
+                    verse: results[3],
                 };
             }
 
@@ -147,7 +95,7 @@ class Parser {
                         label: verseToken,
                         book: results[1],
                         chapter: results[2],
-                        verse: results[3]
+                        verse: results[3],
                     };
                 }
             }
@@ -161,15 +109,15 @@ class Parser {
                         label: results[0],
                         book: results[1],
                         chapter: results[2],
-                        verse: null
+                        verse: null,
                     };
                 }
             }
 
             return verse;
-        }
+        };
 
-        verseTokens.forEach(curToken => {
+        verseTokens.forEach((curToken) => {
             const curVerse = processVerse(curToken);
             if (curVerse) {
                 verses.push(curVerse);
@@ -180,7 +128,7 @@ class Parser {
     }
 
     parseDate(dateStr) {
-        const formattedDate = `${dateStr} 2020`;
+        const formattedDate = `${dateStr} ${PLAN_YEAR}`;
         const parsedDate = moment(formattedDate, 'MMM D YYYY');
 
         return parsedDate.isValid() ? parsedDate.toDate() : null;
