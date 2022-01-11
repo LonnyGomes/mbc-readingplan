@@ -1,6 +1,6 @@
 {
   "name": "mbc-readingplan",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "MBC 2020 reading plan",
   "main": "src/index.js",
   "scripts": {
